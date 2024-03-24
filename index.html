@@ -1,0 +1,759 @@
+<html>
+    <head>
+        <title>SV Community Center</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="main">
+
+            <div class="info" id="info">
+                <div class="left" id="infoLeft">
+                    <div>a</div>
+                    <div>a</div>
+                </div>
+                <div class="right" id="infoRight">
+                    <div>b</div>
+                    <div>b</div>
+                </div>
+            </div>
+
+            <div class="blur" id="blur"></div>
+
+            <div class="container" id="container">
+
+                <div class="circle spring" id ="spring">
+                    <!-- SPRING -->
+
+                    <div class="circle border"></div>
+                    <div class="seasonText spring" id="springText" onclick="toggleSpring()">
+                        <p>Spring</p>
+                    </div>
+
+                    <div class="group spring-fruits">
+                        <p>Fruits</p>
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Cherry.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Cherry', '#BUNDLE_PURPLE# Artisan'], ['Growth Time:', '28 Days'], ['Bears fruit in:', 'Spring'])" />
+                            </div>
+                            <div>
+                                <img src="/images/Apricot.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Apricot', '#BUNDLE_PURPLE# Artisan'], ['Growth Time:', '28 Days'], ['Bears fruit in:', 'Spring'])" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group spring-crops">
+                        <p>Crops</p>
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Parsnip.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Parsnip', '#BUNDLE_GREEN# Spring Crops'], ['Plant before:', '25th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Potato.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Potato', '#BUNDLE_GREEN# Spring Crops'], ['Plant before:', '23th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Green_Bean.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Green Bean', '#BUNDLE_GREEN# Spring Crops'], ['Plant before:', '19th'])"/>
+                            </div> 
+                            <div>
+                                <img src="/images/Cauliflower.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Cauliflower', '#BUNDLE_GREEN# Spring Crops'], ['Plant before:', '17th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/ParsnipGolden.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['5x Golden Parsnips', '#BUNDLE_TEAL# Quality Crops'], ['Plant before:', '25th'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group spring-forage">
+                        <p>Forage</p>
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Wild_Horseradish.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Wild Horseradish', '#BUNDLE_GREEN# Spring Foraging'], ['Location:', 'Almost everywhere'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Daffodil.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Daffodil', '#BUNDLE_GREEN# Spring Foraging'], ['Location:', 'Almost everywhere'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Leek.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Leek', '#BUNDLE_GREEN# Spring Foraging'], ['Location:', 'Almost everywhere'])"/>
+                            </div> 
+                            <div>
+                                <img src="/images/Dandelion.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Dandelion', '#BUNDLE_GREEN# Spring Foraging'], ['Location:', 'Almost everywhere'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Morel.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Morel', '#BUNDLE_PURPLE# Exotic Foraging'], ['Location:', 'Secret Woods', 'Forest Farm'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group spring-fall-forage">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Common_Mushroom.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Common Mushroom', '#BUNDLE_ORANGE# Fall Foraging'], ['Location:', 'Secret Woods', 'Almost everywhere [Fall]'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group spring-fall-winter-fish-header">
+                        <p>Fish</p>
+                    </div>
+                    
+                    <div class="group spring-fall-winter-fish">
+                        <div class="group-children sardine">
+                            <div>
+                                <img src="/images/Sardine.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child fall-child winter-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Sardine', '#BUNDLE_BLUE# Ocean Fish'], ['Location:', ' Ocean'], ['Time:', '6am - 7pm'], ['Weather:', ' Any'], ['Difficulty:', '30'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group spring-fall-fish">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Eel.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Eel', '#BUNDLE_PURPLE# Night Fishing'], ['Location:', ' Ocean'], ['Time:', '4pm - 2am'], ['Weather:', ' #RAIN# Rain'], ['Difficulty:', '70'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group center-fish-header">
+                        <p>Fish</p>
+                    </div>
+
+                    <div class="group spring-summer-fish">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Sunfish.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child  summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Sunfish', '#BUNDLE_TEAL# River Fish'], ['Location:', ' River'], ['Time:', '6am - 7pm'], ['Weather:', ' #SUN# Sun, #WIND# Wind'], ['Difficulty:', '30'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group spring-summer-fall-fish">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Shad.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Shad', '#BUNDLE_TEAL# River Fish'], ['Location:', ' River'], ['Time:', '9am - 2am'], ['Weather:', '#RAIN# Rain'], ['Difficulty:', '45'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Catfish.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="spring-child summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Catfish', '#BUNDLE_TEAL# River Fish'], ['Location:', 'River', 'Secret Woods'], ['Time:', '6am - 12am'], ['Weather:', '#RAIN# Rain'], ['Difficulty:', '75'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group artisan-non-winter">
+                        <p>Artisan</p>
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Truffle.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Truffle', '#BUNDLE_RED# Chef\'s'], ['Source:', 'Pigs'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Truffle_Oil.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Truffle Oil', '#BUNDLE_PURPLE# Artisan'], ['Source:', 'Truffle in Oil Maker'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Honey.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="spring-child summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Honey', '#BUNDLE_PURPLE# Artisan'], ['Source:', 'Bee House'])"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SUMMER -->
+                <div class="circle summer" id="summer">
+                    <div class="circle border"></div>
+                    <div class="seasonText summer" id="summerText" onclick="toggleSummer()">
+                        <p>Summer</p>
+                    </div>
+
+                    <div class="group summer-forage">
+                        <p>Forage</p>
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Fiddlehead_Fern.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Fiddlehead Fern', '#BUNDLE_RED# Chef\'s'], ['Location:', 'Secret Woods'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Sweet_Pea.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Sweet Pea', '#BUNDLE_YELLOW# Summer Foraging'], ['Location:', 'Almost everywhere'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Spice_Berry.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Spice Berry', '#BUNDLE_YELLOW# Summer Foraging'], ['Location:', 'Almost everywhere'])"/>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="group summer-fruits">
+                        <p>Fruits</p>
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Peach.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Peach', '#BUNDLE_PURPLE# Artisan'], ['Growth Time:', '28 Days'], ['Bears fruit in:', 'Summer'])" />
+                            </div>
+                            <div>
+                                <img src="/images/Orange.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Orange', '#BUNDLE_PURPLE# Artisan'], ['Growth Time:', '28 Days'], ['Bears fruit in:', 'Summer'])" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group summer-crops">
+                        <p>Crops</p>
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Tomato.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Tomato', '#BUNDLE_YELLOW# Summer Crops'], ['Plant before:', '18th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Blueberry.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Blueberry', '#BUNDLE_YELLOW# Summer Crops'], ['Plant before:', '16th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Hot_Pepper.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Hot Pepper', '#BUNDLE_YELLOW# Summer Crops'], ['Plant before:', '24th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Melon.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Melon', '#BUNDLE_YELLOW# Summer Crops'], ['Plant before:', '17th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Red_Cabbage.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Red Cabbage', '#BUNDLE_TEAL# Dye'], ['Plant before:', '20th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Poppy.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Poppy', '#BUNDLE_RED# Chef\'s'], ['Plant before:', '22nd'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/MelonGolden.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['5x Golden Melon', '#BUNDLE_TEAL# Quality Crops'], ['Plant before:', '17th'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group summer-fall-crops">
+                        <p>Crops</p>
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Sunflower.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Sunflower', '#BUNDLE_TEAL# Dye'], ['Plant before:', '21st Fall'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Wheat.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Wheat', '#BUNDLE_YELLOW# Fodder'], ['Plant before:', '25th Fall'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Corn.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Corn', '#BUNDLE_ORANGE# Fall Crops'], ['Plant before:', '15th Fall'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/CornGolden.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['5x Golden Corn', '#BUNDLE_TEAL# Quality Crops'], ['Plant before:', '15th Fall'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group summer-fall-forage-header">
+                        <p>Forage</p>
+                    </div>
+
+                    <div class="group summer-fall-forage1">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Grape.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Grape', '#BUNDLE_YELLOW# Summer Foraging'], ['Location:', 'Almost Everywhere'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group summer-fall-forage2">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Red_Mushroom.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Red Mushroom', '#BUNDLE_PURPLE# Exotic Foraging'], ['Location:', 'Secret Woods', 'The Mines'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group summer-fall-forage3">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Red_Mushroom.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Red Mushroom', '#BUNDLE_TEAL# Dye'], ['Location:', 'Secret Woods', 'The Mines'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group summer-fall-winter-fish-header">
+                        <p>Fish</p>
+                    </div>
+
+                    <div class="group summer-fish">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Pufferfish.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Pufferfish', '#BUNDLE_RED# Specialty Fish'], ['Location:', 'Ocean'], ['Time:', '12pm - 4pm'], ['Weather:', '#SUN# Sun'], ['Difficulty:', '80'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group summer-winter-fish1">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Tuna.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child winter-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Tuna', '#BUNDLE_BLUE# Ocean Fish'], ['Location:', 'Ocean'], ['Time:', '6am - 7pm'], ['Weather:', 'Any'], ['Difficulty:', '70'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group summer-winter-fish2">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Sturgeon.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child winter-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Sturgeon', '#BUNDLE_GREEN# Lake Fish'], ['Location:', 'Ocean'], ['Time:', '6am - 7pm'], ['Weather:', 'Any'], ['Difficulty:', '78'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group summer-fall-fish">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Tilapia.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Tilapia', '#BUNDLE_BLUE# Ocean Fish'], ['Location:', 'Ocean'], ['Time:', '6am - 2pm'], ['Weather:', 'Any'], ['Difficulty:', '50'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group summer-fall-winter-fish">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Red_Snapper.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="summer-child fall-child winter-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Red Snapper', '#BUNDLE_BLUE# Ocean Fish'], ['Location:', 'Ocean'], ['Time:', '6am - 7pm'], ['Weather:', '#RAIN# Rain', '<b>In Winter only with Rain Totem</b>'], ['Difficulty:', '40'])"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FALL -->
+                <div class="circle fall" id="fall">
+                    <div class="circle border"></div>
+                    <div class="seasonText fall" id="fallText" onclick="toggleFall()">
+                        <p>Fall</p>
+                    </div>
+
+                    <div class="group fall-fish">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Walleye.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Walleye', '#BUNDLE_PURPLE# Night Fishing'], ['Location:', 'River', 'Mountain Lake', 'Forest Pond'], ['Time:', '12pm - 2am'], ['Weather:', '#RAIN# Rain'], ['Difficulty:', ' 45'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Tiger_Trout.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Tiger Trout', '#BUNDLE_TEAL# River Fish'], ['Location:', 'River'], ['Time:', '6am - 7pm'], ['Weather:', ' Any'], ['Difficulty:', ' 60'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group fall-crops">
+                        <p>Crops</p>
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Yam.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Yam', '#BUNDLE_ORANGE# Fall Crops'], ['Plant before:', '19th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Pumpkin.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Pumpkin', '#BUNDLE_ORANGE# Fall Crops'], ['Plant before:', '16th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Eggplant.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Eggplant', '#BUNDLE_ORANGE# Fall Crops'], ['Plant before:', '24th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/PumpkinGolden.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                 class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['5x Golden Pumpkin', '#BUNDLE_TEAL# Quality Crops'], ['Plant before:', '16th'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group fall-fruits">
+                        <p>Fruits</p>
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Apple.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Apple', '#BUNDLE_PURPLE# Artisan'], ['Growth Time:', '28 Days'], ['Bears fruit in:', 'Fall'])" />
+                            </div>
+                            <div>
+                                <img src="/images/Pomegranate.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Pomegranate', '#BUNDLE_PURPLE# Artisan'], ['Growth Time:', '28 Days'], ['Bears fruit in:', 'Fall'])" />
+                            </div>
+                            <div>
+                                <img src="/images/Apple.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['3x Apple', '#BUNDLE_YELLOW# Fodder'], ['Growth Time:', '28 Days'], ['Bears fruit in:', 'Fall'])" />
+                            </div>
+                            <div>
+                                <img src="/images/Pomegranate.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Pomegranate', '#BUNDLE_PURPLE# Enchanter\'s'], ['Growth Time:', '28 Days'], ['Bears fruit in:', 'Fall'])" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group fall-forage1">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Hazelnut.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Hazelnut', '#BUNDLE_ORANGE# Fall Foraging'], ['Location:', 'Almost Everywhere'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group fall-forage2">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Wild_Plum.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Wild Plum', '#BUNDLE_ORANGE# Fall Foraging'], ['Location:', 'Almost Everywhere'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group fall-forage3">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Blackberry.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="fall-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Blackberry', '#BUNDLE_ORANGE# Fall Foraging'], ['Location:', 'Almost Everywhere'])"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="circle winter" id="winter">
+                    <div class="circle border"></div>
+                    <div class="seasonText winter" id="winterText" onclick="toggleWinter()">
+                        <p>Winter</p>
+                    </div>
+                </div>
+
+                <div class="circle winter2" id="winter2">
+                    <div class="circle border"></div>
+                    <div class="seasonText winter2" id="winterText2" onclick="toggleWinter()">
+                        <p>Winter</p>
+                    </div>
+
+                    <div class="group winter-forage-header">
+                        <p>Forage</p>
+                    </div>
+
+                    <div class="group winter-forage1">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Nautilus_Shell.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="winter-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Nautilus Shell', '#BUNDLE_BLUE# Field Research'], ['Location:', 'The Beach'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group winter-forage2">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Snow_Yam.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="winter-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Snow Yam', '#BUNDLE_TEAL# Winter Foraging'], ['Source:', 'Tilling'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group winter-forage3">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Crystal_Fruit.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="winter-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Crystal Fruit', '#BUNDLE_TEAL# Winter Foraging'], ['Location:', 'Almost Everywhere'])"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group winter-forage4">
+                        <div class="group-children">
+                            <div>
+                                <img src="/images/Winter_Root.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="winter-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Winter Root', '#BUNDLE_TEAL# Winter Foraging'], ['Source:', 'Tilling', 'Blue Slimes'])"/>
+                            </div>
+
+                            <div>
+                                <img src="/images/Crocus.png" onclick="toggleItem(this)"
+                                oncontextmenu="showBundleItems(event, this)"
+                                draggable="false"
+                                class="winter-child"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Crocus', '#BUNDLE_TEAL# Winter Foraging'], ['Location:', 'Almost Everywhere'])"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <script src="script.js"></script>
+</html>
