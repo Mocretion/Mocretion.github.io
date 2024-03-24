@@ -321,7 +321,6 @@ function toggleItem(element){
     const completed = getItemsInBundleCompleted(element);
     const totalNeeded = getItemsNeededInBundle(element);
 
-
     let itemsInBundle = completed > totalNeeded ? totalNeeded : completed;
     infoRight.innerHTML = infoRight.innerHTML.slice(0, index + 2) + itemsInBundle + infoRight.innerHTML.slice(index + 3);
 
@@ -532,6 +531,10 @@ const observer = new ResizeObserver(entries => {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
+    const anySeasonLeft = summerCircle.clientWidth * (1- 1 / cutQuantityProportion) + winterCircle2.clientWidth / 2;
+    anySeasonContainer.style.left = anySeasonLeft;
+    anySeasonContainer.style.width = width * 0.75 - anySeasonLeft;
+    anySeasonContainer.style.height = height * 0.98 - 10;
     anySeasonText.style.left = anySeasonContainer.clientWidth / 2 - anySeasonText.clientWidth / 2;
 
     entries.forEach(entry => {
