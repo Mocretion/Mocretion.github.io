@@ -289,6 +289,19 @@ function disableAllItems(){
 }
 
 /**
+ * Shrinks all items in the bundle
+ * @param {HTTPElement} element An item of the bundle
+ */
+function disableAllItemInBundle(element){
+    const itemsInBundle = getItemsInSameBundle(element);
+
+    itemsInBundle.forEach(x =>{
+        if(x.style.opacity == 1 || x.style.opacity == "")
+            toggleItem(x);
+    })
+}
+
+/**
  * Shrinks or enlarges the item
  * @param {HTMLElement} element The item to toggle
  */
@@ -305,12 +318,19 @@ function toggleItem(element){
 
     const index = infoRight.innerHTML.replace("(", "").indexOf("(");
 
-    let itemsInBundle = getItemsInBundleCompleted(element) > getItemsNeededInBundle(element) ? getItemsNeededInBundle(element) : getItemsInBundleCompleted(element);
+    const completed = getItemsInBundleCompleted(element);
+    const totalNeeded = getItemsNeededInBundle(element);
+
+
+    let itemsInBundle = completed > totalNeeded ? totalNeeded : completed;
     infoRight.innerHTML = infoRight.innerHTML.slice(0, index + 2) + itemsInBundle + infoRight.innerHTML.slice(index + 3);
 
-    if(getItemsInBundleCompleted(element) >= getItemsNeededInBundle(element))
-    infoElement.style.borderColor = "gold";
-    else{
+    if(completed >= totalNeeded){
+        infoElement.style.borderColor = "gold";
+
+        if(element.style.opacity == 0.3 && totalNeeded == completed)  // Deactivate other items in bundle if last one got deactivated
+            disableAllItemInBundle(element);
+    }else{
         infoElement.style.borderColor = "black";
     }
 
