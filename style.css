@@ -463,6 +463,7 @@
     border: 2px solid black;
     padding: 10px;
     z-index: 2000;
+    font-size: 22;
 
     display: flex;
     justify-content: space-between;
