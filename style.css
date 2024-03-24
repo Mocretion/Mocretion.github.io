@@ -75,21 +75,37 @@
 
 .circle.winter{
     height: 20%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(219, 252, 255, 0.5);
     top: 50%;
     transform: rotate(0.15turn);
 }
 .seasonText.winter{
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(219, 252, 255, 1);
     transform: rotate(-0.15turn);
 }
 .circle.winter2{
     height: 40%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(219, 252, 255, 0.5);
     top: 50%;
 }
 .seasonText.winter2{
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(219, 252, 255, 1);
+}
+
+.any-season-container{
+    position: absolute;
+    height: 100%;
+    top: 0%;
+    background-color: rgba(205, 189, 222, 0.5);
+    border-radius: 5% 0% 0% 0%;
+    left: 57.5%;
+    right: 0%;
+    min-width: 700px;
+}
+.seasonText.anySeason{
+    background-color: rgba(205, 189, 222, 1);
+    left: 50%;
+    cursor: default;
 }
 
 .circle.border{
@@ -113,7 +129,6 @@
     text-align: center;
     font-size: 25px;
     width: 40%;
-    height: 23%;
     pointer-events: none;
 }
 .group > p{
@@ -168,8 +183,8 @@
 }
 
 .spring-fall-winter-fish-header{  /* Fish */  /* Fish Text Spring-Fall*/
-    left: 23%;
-    top: 80%;
+    left: 22.5%;
+    top: 81%;
 }
 .spring-fall-winter-fish{
     left: 25%;
@@ -394,6 +409,50 @@
     left: 42%;
     top: 35%;
     width: 65%;
+}
+
+/* AnySeason */
+.anyseason-forage{
+    top: 5%;
+    width: 30.5%;
+}
+.anyseason-farming{
+    top: 5%;
+    left: 35%;
+    width: 30.5%;
+}
+.anyseason-crabpot{
+    top: 5%;
+    right: 0%;
+    width: 30.5%;
+}
+.anyseason-mining{
+    top: 44%;
+    width: 30.5%;
+}
+.anyseason-artisan{
+    top: 44%;
+    left: 35%;
+    width: 30.5%;
+}
+.anyseason-fish{
+    top: 44%;
+    right: 0%;
+    width: 30.5%;
+}
+.anyseason-monster{
+    top: 77.5%;
+    width: 30.5%;
+}
+.anyseason-materials{
+    top: 77.5%;
+    left: 35%;
+    width: 30.5%;
+}
+.anyseason-cooking{
+    top: 77.5%;
+    right: 0%;
+    width: 30.5%;
 }
 
 .info{

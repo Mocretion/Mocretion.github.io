@@ -10,12 +10,14 @@ const summerCircle = document.getElementById("summer");
 const fallCircle = document.getElementById("fall");
 const winterCircle = document.getElementById("winter");
 const winterCircle2 = document.getElementById("winter2");
+const anySeasonContainer = document.getElementById("any-season-container");
 
 const springCircleText = document.getElementById("springText");
 const summerCircleText = document.getElementById("summerText");
 const fallCircleText = document.getElementById("fallText");
 const winterCircleText = document.getElementById("winterText");
 const winterCircleText2 = document.getElementById("winterText2");
+const anySeasonText = document.getElementById("anySeasonText");
 
 const infoElement = document.getElementById("info");
 const infoLeft = document.getElementById("infoLeft");
@@ -25,7 +27,8 @@ const springChildren = Array.from(document.getElementsByClassName("spring-child"
 const summerChildren = Array.from(document.getElementsByClassName("summer-child"));
 const fallChildren = Array.from(document.getElementsByClassName("fall-child"));
 const winterChildren = Array.from(document.getElementsByClassName("winter-child"));
-const allItems = new Set(springChildren.concat(summerChildren).concat(fallChildren).concat(winterChildren));
+const anySeasonChildren = Array.from(document.getElementsByClassName("anyseason-child"));
+const allItems = new Set(springChildren.concat(summerChildren).concat(fallChildren).concat(winterChildren).concat(anySeasonChildren));
 
 const enabledOpacity = 1;
 const disabledOpacity = 0.5;
@@ -40,7 +43,7 @@ const overwriteDictMax ={
     "#BUNDLE_PURPLE# Artisan": 6,
     "#BUNDLE_PURPLE# Crab Pot": 5,
     "#BUNDLE_RED# Animal": 5,
-    "#BUNDLE_PURPLE# Adventurer\'s": 2,
+    "#BUNDLE_PURPLE# Adventurers": 2,
     "#BUNDLE_PURPLE# The Missing Bundle": 5
 }
 
@@ -242,9 +245,21 @@ function replaceCodeWords(string){
     string = string.replace("#BUNDLE_TEAL#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Teal.png>");
     string = string.replace("#BUNDLE_YELLOW#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Yellow.png>");
     string = string.replace("#BUNDLE_BLUE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Blue.png>");
+
     string = string.replace("#RAIN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Rain.png>");
     string = string.replace("#WIND#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Windy.png>");
     string = string.replace("#SUN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Sunny.png>");
+
+    string = string.replace("#SLIME#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Slimes.png>");
+    string = string.replace("#BAT#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bat.png>");
+    string = string.replace("#GHOST#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Ghost.png>");
+    string = string.replace("#METAL_HEAD#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Metal_Head.png>");
+    string = string.replace("#SQUID_KID#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Squid_Kid.png>");
+    string = string.replace("#SHADOW_BRUTE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Shadow_Brute.png>");
+    string = string.replace("#SHADOW_SHAMAN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Shadow_Shaman.png>");
+
+    string = string.replace("#QUEEN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Cooking_Channel.png>");
+    string = string.replace("#GUS#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Gus_Icon.png>");
 
     return string;
 }
@@ -252,7 +267,13 @@ function replaceCodeWords(string){
 function showInfo(e, element, ...lines){
     calculateLines(element, lines);
 
-    infoElement.style.left = e.clientX + 30;
+    console.log(e.clientX / window.innerWidth);
+
+    if(e.clientX / window.innerWidth < 0.77)  // Show info text on left of mouse
+        infoElement.style.left = e.clientX + 30;
+    else
+        infoElement.style.left = e.clientX - 30 - infoElement.clientWidth;
+
     infoElement.style.top = e.clientY;
     infoElement.style.opacity = 1;
     infoElement.style.visibility = 'visible';
@@ -339,6 +360,8 @@ const observer = new ResizeObserver(entries => {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
+    anySeasonText.style.left = anySeasonContainer.clientWidth / 2 - anySeasonText.clientWidth / 2;
+
     entries.forEach(entry => {
         entry.target.style.width = entry.target.clientHeight;
 
@@ -349,7 +372,7 @@ const observer = new ResizeObserver(entries => {
             case "spring":
                 entry.target.style.left = -entry.target.clientWidth + entry.target.clientWidth / cutQuantityProportion;
 
-                springCircleText.style.fontSize = width / 50;
+                springCircleText.style.fontSize = width / 80;
                 border = getCircleBorder(center, center, 130);
 
                 springCircleText.style.left = border[0] - springCircleText.clientWidth / 2;
@@ -359,7 +382,7 @@ const observer = new ResizeObserver(entries => {
             case "summer":
                 entry.target.style.left = -entry.target.clientWidth / cutQuantityProportion;
 
-                summerCircleText.style.fontSize = width / 50;
+                summerCircleText.style.fontSize = width / 80;
                 border = getCircleBorder(center, center, 60);
 
                 summerCircleText.style.left = border[0] - summerCircleText.clientWidth / 2;
@@ -369,7 +392,7 @@ const observer = new ResizeObserver(entries => {
                 entry.target.style.left = -entry.target.clientWidth / 2.05;
                 entry.target.style.top = entry.target.clientHeight / 2.3;
 
-                fallCircleText.style.fontSize = width / 50;
+                fallCircleText.style.fontSize = width / 80;
                 border = getCircleBorder(center, center, 290);
 
                 fallCircleText.style.left = border[0] - fallCircleText.clientWidth / 2;
@@ -378,7 +401,7 @@ const observer = new ResizeObserver(entries => {
             case "winter":
                 entry.target.style.width = entry.target.clientHeight / 1.5;
                 entry.target.style.left = -entries[0].target.clientWidth / 1.55;
-                winterCircleText.style.fontSize = width / 50;
+                winterCircleText.style.fontSize = width / 80;
 
                 border = getCircleBorder(center, center, 230);
                 winterCircleText.style.left = border[0] - winterCircleText.clientWidth / 2;
@@ -387,9 +410,9 @@ const observer = new ResizeObserver(entries => {
             case "winter2":
                 entry.target.style.width = entry.target.clientHeight;
                 entry.target.style.left = entries[0].target.clientWidth / 2.15;
-                winterCircleText2.style.fontSize = width / 50;
+                winterCircleText2.style.fontSize = width / 80;
 
-                border = getCircleBorder(center, center, 40);
+                border = getCircleBorder(center, center, 50);
                 winterCircleText2.style.left = border[0] - winterCircleText2.clientWidth / 2;
                 winterCircleText2.style.bottom = border[1] - winterCircleText2.clientHeight / 1.2;
                 break;
