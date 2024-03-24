@@ -46,8 +46,58 @@ const overwriteDictMax ={
     "#BUNDLE_PURPLE# Adventurers": 2,
     "#BUNDLE_PURPLE# The Missing Bundle": 5
 }
+/**
+ * Gets executed on page load
+ * Fills "dict" with bundle entries
+ */
+function initBundles(){
+    let entry;
+    allItems.forEach(x => {
+        entry = getItemInfoBundleName(x);
+        if(dict[entry] === undefined){
+            dict[entry] = [x];
+        }else{
+            dict[entry].push(x);
+        }
 
-function setAlpha(element, alpha){
+        const cookie = getCookie(getCookieName(x));
+        if(cookie == "false") toggleItem(x);
+    });
+}
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookieName(element){
+    return getItemInfoName(element).replace("\\", "").replace("'", "") + " " + getItemInfoBundleName(element).replace("\\", "").replace("'", "");
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+/**
+ * Sets the background-color alpha value
+ * @param {HTMLElement} element The elemnt to change the alpha in
+ * @param {Number} alpha The value to set. Must be between 0 and 1
+ */
+function setBackgroundAlpha(element, alpha){
     const cssObj = window.getComputedStyle(element, null);
     const property = cssObj.getPropertyValue('background-color');
     let colors = property.split(', ');
@@ -66,24 +116,31 @@ function getCircleBorder(circleCenter, radius, degree){
     return [x, y];
 }
 
-function disableItemsExcept(except){
+/**
+ * Changes the z-Index of all items but with a specific ID
+ * @param {String} except The ID no to influence
+ * @param {Number} amount The amount to add
+ */
+function changeitemsZIndexExcept(except, amount){
 
     allItems.forEach(x =>{
         if(x.className.includes(except)) return;
 
-        disableItem(x);
+        changeZIndex(x, amount);
     });
 }
 
-function enableItemsExcept(except){
-
-    allItems.forEach(x =>{
-        if(x.className.includes(except)) return;
-
-        enableItem(x);
-    });
+/**
+ * @param {HTMLElement} element The element to change the z-Index in
+ * @param {Number} amount The amount to add
+ */
+function changeZIndex(element, amount){
+    element.style.zIndex = parseInt(window.getComputedStyle(element).getPropertyValue("z-index")) + amount;
 }
 
+/**
+ * Removes focus from all season circles
+ */
 function deselectAllCircles(){
     if(springEnabled) toggleSpring();
     if(summerEnabled) toggleSummer();
@@ -91,84 +148,96 @@ function deselectAllCircles(){
     if(winterEnabled) toggleWinter();
 }
 
+/**
+ * Toggles focus from the spring circle
+ */
 function toggleSpring() {
 
     if(springEnabled){
-        setAlpha(springCircle, disabledOpacity);
+        setBackgroundAlpha(springCircle, disabledOpacity);
         blurDiv.style.opacity = 0;
         springCircle.style.zIndex = "auto";
 
-        enableItemsExcept("spring-child");
+        changeitemsZIndexExcept("spring-child", 80);
 
     }else{
         deselectAllCircles();
-        setAlpha(springCircle, enabledOpacity);
+        setBackgroundAlpha(springCircle, enabledOpacity);
         blurDiv.style.opacity = 0.6;
         springCircle.style.zIndex = 50;
 
-        disableItemsExcept("spring-child");
+        changeitemsZIndexExcept("spring-child", -80);
     }
 
     springEnabled = !springEnabled;
 }
 
+/**
+ * Toggles focus from the summer circle
+ */
 function toggleSummer() {
     if(summerEnabled){
-        setAlpha(summerCircle, disabledOpacity);
+        setBackgroundAlpha(summerCircle, disabledOpacity);
         blurDiv.style.opacity = 0;
         summerCircle.style.zIndex = "auto";
 
-        enableItemsExcept("summer-child");
+        changeitemsZIndexExcept("summer-child", 80);
     }else{
         deselectAllCircles();
-        setAlpha(summerCircle, enabledOpacity);
+        setBackgroundAlpha(summerCircle, enabledOpacity);
         blurDiv.style.opacity = 0.6;
         summerCircle.style.zIndex = 50;
-
-        disableItemsExcept("summer-child");
+        
+        changeitemsZIndexExcept("summer-child", -80);
     }
 
     summerEnabled = !summerEnabled;
 }
 
+/**
+ * Toggles focus from the fall circle
+ */
 function toggleFall() {
     if(fallEnabled){
-        setAlpha(fallCircle, disabledOpacity);
+        setBackgroundAlpha(fallCircle, disabledOpacity);
         fallCircle.style.zIndex = "auto";
         blurDiv.style.opacity = 0;
         fallCircle.style.zIndex = "auto";
 
-        enableItemsExcept("fall-child");
+        changeitemsZIndexExcept("fall-child", 80);
     }else{
         deselectAllCircles();
-        setAlpha(fallCircle, enabledOpacity);
+        setBackgroundAlpha(fallCircle, enabledOpacity);
         blurDiv.style.opacity = 0.6;
         fallCircle.style.zIndex = 50;
 
-        disableItemsExcept("fall-child");
+        changeitemsZIndexExcept("fall-child", -80);
     }
 
     fallEnabled = !fallEnabled;
 }
 
+/**
+ * Toggles focus from the winter circles
+ */
 function toggleWinter() {
     if(winterEnabled){
-        setAlpha(winterCircle, disabledOpacity);
-        setAlpha(winterCircle2, disabledOpacity);
+        setBackgroundAlpha(winterCircle, disabledOpacity);
+        setBackgroundAlpha(winterCircle2, disabledOpacity);
         blurDiv.style.opacity = 0;
         winterCircle.style.zIndex = "auto";
         winterCircle2.style.zIndex = "auto";
 
-        enableItemsExcept("winter-child");
+        changeitemsZIndexExcept("winter-child", 80);
     }else{
         deselectAllCircles();
-        setAlpha(winterCircle, enabledOpacity);
-        setAlpha(winterCircle2, enabledOpacity);
+        setBackgroundAlpha(winterCircle, enabledOpacity);
+        setBackgroundAlpha(winterCircle2, enabledOpacity);
         blurDiv.style.opacity = 0.6;
         winterCircle.style.zIndex = 50;
         winterCircle2.style.zIndex = 50;
 
-        disableItemsExcept("winter-child");
+        changeitemsZIndexExcept("winter-child", -80);
     }
     winterEnabled = !winterEnabled;
 }
@@ -181,9 +250,14 @@ const blink = [
 
 const blinkTiming = {
     duration: 500,
-    iterations: 2
+    iterations: 5
 }
 
+/**
+ * Emphasizes items in the same bundle
+ * @param event 
+ * @param {HTMLElement} element Item in a bundle to get the information from
+ */
 function showBundleItems(event, element){
     
     getItemsInSameBundle(element).forEach(x => {
@@ -194,6 +268,30 @@ function showBundleItems(event, element){
     event.preventDefault();
 }
 
+/**
+ * Enlarges all items to normal size
+ */
+function enableAllItems(){
+    allItems.forEach(x =>{
+        if(x.style.opacity == 0.3)
+            toggleItem(x);
+    })
+}
+
+/**
+ * Shrinks all items
+ */
+function disableAllItems(){
+    allItems.forEach(x =>{
+        if(x.style.opacity == 1 || window.getComputedStyle(x).getPropertyValue("opacity") == 1)
+            toggleItem(x);
+    })
+}
+
+/**
+ * Shrinks or enlarges the item
+ * @param {HTMLElement} element The item to toggle
+ */
 function toggleItem(element){
     const opacity = window.getComputedStyle(element).getPropertyValue("opacity");
     if(opacity == 0.3){
@@ -215,66 +313,26 @@ function toggleItem(element){
     else{
         infoElement.style.borderColor = "black";
     }
+
+    setCookie(getCookieName(element), element.style.opacity == 0.3 ? "false" : "true", 60);
 }
 
-function disableItem(element){
-    element.style.zIndex = parseInt(window.getComputedStyle(element).getPropertyValue("z-index")) - 80;
-}
-
-function enableItem(element){
-    element.style.zIndex = parseInt(window.getComputedStyle(element).getPropertyValue("z-index")) + 80;
-}
-
-function initBundles(){
-    let entry;
-    allItems.forEach(x => {
-        entry = x.onmousemove.toString().trim().split('\'')[3];
-        if(dict[entry] === undefined){
-            dict[entry] = [x];
-        }else{
-            dict[entry].push(x);
-        }
-    });
-}
-
-function replaceCodeWords(string){
-    string = string.replace("#BUNDLE_GREEN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Green.png>");
-    string = string.replace("#BUNDLE_ORANGE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Orange.png>");
-    string = string.replace("#BUNDLE_RED#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Red.png>");
-    string = string.replace("#BUNDLE_PURPLE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Purple.png>");
-    string = string.replace("#BUNDLE_TEAL#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Teal.png>");
-    string = string.replace("#BUNDLE_YELLOW#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Yellow.png>");
-    string = string.replace("#BUNDLE_BLUE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Blue.png>");
-
-    string = string.replace("#RAIN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Rain.png>");
-    string = string.replace("#WIND#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Windy.png>");
-    string = string.replace("#SUN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Sunny.png>");
-
-    string = string.replace("#SLIME#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Slimes.png>");
-    string = string.replace("#BAT#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bat.png>");
-    string = string.replace("#GHOST#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Ghost.png>");
-    string = string.replace("#METAL_HEAD#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Metal_Head.png>");
-    string = string.replace("#SQUID_KID#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Squid_Kid.png>");
-    string = string.replace("#SHADOW_BRUTE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Shadow_Brute.png>");
-    string = string.replace("#SHADOW_SHAMAN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Shadow_Shaman.png>");
-
-    string = string.replace("#QUEEN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Cooking_Channel.png>");
-    string = string.replace("#GUS#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Gus_Icon.png>");
-
-    return string;
-}
-
+/**
+ * Shows the info div which appears when hovering over an item
+ */
 function showInfo(e, element, ...lines){
     calculateLines(element, lines);
-
-    console.log(e.clientX / window.innerWidth);
 
     if(e.clientX / window.innerWidth < 0.77)  // Show info text on left of mouse
         infoElement.style.left = e.clientX + 30;
     else
         infoElement.style.left = e.clientX - 30 - infoElement.clientWidth;
 
-    infoElement.style.top = e.clientY;
+    if(e.clientY / window.innerHeight > 0.8)  // Show info text on left of mouse
+        infoElement.style.top = e.clientY -infoElement.clientHeight;
+    else
+        infoElement.style.top = e.clientY;
+
     infoElement.style.opacity = 1;
     infoElement.style.visibility = 'visible';
     if(getItemsInBundleCompleted(element) >= getItemsNeededInBundle(element))
@@ -284,10 +342,22 @@ function showInfo(e, element, ...lines){
     }
 }
 
-function calculateLines(element, ...lines){
+/**
+ * Hides the info div which appears when hovering over an item
+ */
+function hideInfo(){
+    infoElement.style.opacity = 0;
+    infoElement.style.visibility = 'hidden';
+}
+
+/**
+ * Generates the text inside the info div 
+ * @param {HTMLElement} element The item to get information from
+ * @param lines String to fill the div
+ */
+function calculateLines(element, lines){
     let contentLeft = "";
     let contentRight = "";
-    lines = lines[0];
     let j = 0;
     lines.forEach(x => {
         contentLeft += "<div><b>" + replaceCodeWords(x[0]) + "</b></div>";  // Set Item Info Type (e.x Source or Weather)
@@ -317,10 +387,14 @@ function calculateLines(element, ...lines){
     infoRight.innerHTML = contentRight;
 }
 
+/**
+ * @param {HTMLElement} element The item-element in the bundle to get the information from
+ * @returns Amount of items completed in bundle
+ */
 function getItemsInBundleCompleted(element){
     let finishedItemsInBundle = 0;
     for(const [key, value] of Object.entries(dict)){
-        if(key == element.onmousemove.toString().trim().split('\'')[3]){
+        if(key == getItemInfoBundleName(element)){
             value.forEach(z =>{
                 if(z.style.opacity == 0.3){
                     finishedItemsInBundle++;
@@ -332,9 +406,13 @@ function getItemsInBundleCompleted(element){
 
     return finishedItemsInBundle;
 }
-
+ 
+/**
+ * @param {HTMLElement} element The item-element in the bundle to get the information from
+ * @returns The amount of items needed to complete a bundle
+ */
 function getItemsNeededInBundle(element){
-    const elementKey = element.onmousemove.toString().trim().split('\'')[3];
+    const elementKey = getItemInfoBundleName(element);
     for(const [key, value] of Object.entries(overwriteDictMax)){
         if(key == elementKey) return value;
     }
@@ -342,8 +420,12 @@ function getItemsNeededInBundle(element){
     return dict[elementKey].length;
 }
 
+/**
+ * @param {HTMLElement} element The item-element in the bundle to get the information from
+ * @returns All item-HTMLElements belonging to a bundle
+ */
 function getItemsInSameBundle(element){
-    const elementKey = element.onmousemove.toString().trim().split('\'')[3];
+    const elementKey = getItemInfoBundleName(element);
     for(const [key, value] of Object.entries(dict)){
         if(key == elementKey) return value;
     }
@@ -351,9 +433,52 @@ function getItemsInSameBundle(element){
     return [];
 }
 
-function hideInfo(){
-    infoElement.style.opacity = 0;
-    infoElement.style.visibility = 'hidden';
+/**
+ * @param {HTMLElement} element item to get the info from
+ * @returns item name from their info div
+ */
+function getItemInfoName(element){
+    return element.onmousemove.toString().trim().split('\'')[1]
+}
+
+/**
+ * @param {HTMLElement} element item to get the info from
+ * @returns bundle name from their info div
+ */
+function getItemInfoBundleName(element){
+    return element.onmousemove.toString().trim().split('\'')[3]
+}
+
+/**
+ * Replaces codewords in a string with an image
+ * @param {String} string The string to replace the codewords in
+ * @returns A string with images embeded
+ */
+function replaceCodeWords(string){
+    string = string.replace("#BUNDLE_GREEN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Green.png>");
+    string = string.replace("#BUNDLE_ORANGE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Orange.png>");
+    string = string.replace("#BUNDLE_RED#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Red.png>");
+    string = string.replace("#BUNDLE_PURPLE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Purple.png>");
+    string = string.replace("#BUNDLE_TEAL#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Teal.png>");
+    string = string.replace("#BUNDLE_YELLOW#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Yellow.png>");
+    string = string.replace("#BUNDLE_BLUE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bundle_Blue.png>");
+
+    string = string.replace("#RAIN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Rain.png>");
+    string = string.replace("#WIND#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Windy.png>");
+    string = string.replace("#SUN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Sunny.png>");
+
+    string = string.replace("#SLIME#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Slimes.png>");
+    string = string.replace("#BAT#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bat.png>");
+    string = string.replace("#GHOST#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Ghost.png>");
+    string = string.replace("#METAL_HEAD#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Metal_Head.png>");
+    string = string.replace("#SQUID_KID#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Squid_Kid.png>");
+    string = string.replace("#SHADOW_BRUTE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Shadow_Brute.png>");
+    string = string.replace("#SHADOW_SHAMAN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Shadow_Shaman.png>");
+
+    string = string.replace("#QUEEN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Cooking_Channel.png>");
+    string = string.replace("#GUS#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Gus_Icon.png>");
+
+    return string;
 }
 
 const observer = new ResizeObserver(entries => {
@@ -427,43 +552,5 @@ observer.observe(summerCircle);
 observer.observe(fallCircle);
 observer.observe(winterCircle);
 observer.observe(winterCircle2);
-
-let degreeSpring = 0;
-let degreeSummer = 0;
-let degreeFall = 0;
-
-function rotateSpring(){
-    const center = springCircle.clientWidth / 2;
-
-    border = getCircleBorder(center, center, degreeSpring);
-    springCircleText.style.left = border[0] - springCircleText.clientWidth / 2;
-    springCircleText.style.bottom = border[1] - springCircleText.clientHeight / 2;
-
-    degreeSpring += 1;
-}
-
-function rotateSummer(){
-    const center = summerCircle.clientWidth / 2;
-
-    border = getCircleBorder(center, center, degreeSummer + 120);
-    summerCircleText.style.left = border[0] - summerCircleText.clientWidth / 2;
-    summerCircleText.style.bottom = border[1] - summerCircleText.clientHeight / 2;
-
-    degreeSummer += 1;
-}
-
-function rotateFall(){
-    const center = fallCircle.clientWidth / 2;
-
-    border = getCircleBorder(center, center, degreeFall + 200);
-    fallCircleText.style.left = border[0] - fallCircleText.clientWidth / 2;
-    fallCircleText.style.bottom = border[1] - fallCircleText.clientHeight / 2;
-
-    degreeFall += 1;
-}
-
-//setInterval(rotateSpring, 2);
-//setInterval(rotateSummer, 10);
-//setInterval(rotateFall, 6);
 
 window.onload = initBundles();

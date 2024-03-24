@@ -471,3 +471,24 @@
 
     transition: border-color 0.15s;
 }
+
+.management-buttons{
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+.management-buttons > button{
+    margin: 2px;
+    padding: 0.5%;
+    border: none;
+    background-color: brown;
+    color: white;
+    box-shadow: 2px 2px black;
+    border-radius: 5%;
+    font-size: 130%;
+    cursor: pointer;
+}
