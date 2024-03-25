@@ -511,6 +511,7 @@ function replaceCodeWords(string){
     string = string.replace("#QUEEN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Cooking_Channel.png>");
     string = string.replace("#GUS#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Gus_Icon.png>");
     string = string.replace("#MARNIE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Marnie_Icon.png>");
+    string = string.replace("#MERCHANT#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Traveling_Cart_Icon.png>");
 
     // Tools
     string = string.replace("#SCYTHE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Scythe.png>");
@@ -524,6 +525,9 @@ function replaceCodeWords(string){
     string = string.replace("#FURNACE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Furnace.png>");
     string = string.replace("#BEE_HOUSE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=images/Bee_House.png>");
 
+    // Colors
+    string = string.replace("#RED#", "<span style=\'color: red\'>");
+    string = string.replace('#RED#', "</span>");
     return string;
 }
 
