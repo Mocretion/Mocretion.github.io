@@ -1,0 +1,333 @@
+<html>
+    <head>
+        <title>SV Community Center</title>
+        <link rel="icon" href="/images/Junimo.png">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="main">
+
+            <div class="info" id="info">
+                <div class="left" id="infoLeft">
+                </div>
+                <div class="right" id="infoRight">
+                </div>
+            </div>
+
+            <div class="blur" id="blur"></div>
+
+            <div class="container" id="container">
+
+                <!-- SPRING -->
+                <div class="circle spring" id ="spring">
+
+                    <div class="circle border"></div>
+                    <div class="seasonText spring" id="springText" onclick="toggleSpring()">
+                        <p><b>Spring</b></p>
+                    </div>
+
+                    <img src="/images/Sunfish.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="spring-child summer-child sun-child Sunfish"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Sunfish'], ['Location:', 'River'], ['Time:', '6am - 7pm'], ['Weather:', '#SUN# Sun, #WIND# Wind'], ['Difficulty:', '30'], ['Behavior:', 'Mixed'])" />
+              
+                    <img src="/images/Anchovy.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="spring-child fall-child Anchovy"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Anchovy'], ['Location:', 'Ocean'], ['Time:', '6am - 2am'], ['Weather:', 'Any'], ['Difficulty:', '30'], ['Behavior:', 'Dart'])" />
+
+                    <img src="/images/Smallmouth_Bass.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="spring-child fall-child SmallmouthBass"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Smallmouth Bass'], ['Location:', 'Town River', 'Forest Pond'], ['Time:', '6am - 2am'], ['Weather:', 'Any'], ['Difficulty:', '28'], ['Behavior:', 'Mixed'])" />
+
+                    <img src="/images/Herring.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="spring-child winter-child Herring"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Herring'], ['Location:', 'Ocean'], ['Time:', '6am - 2am'], ['Weather:', 'Any'], ['Difficulty:', '25'], ['Behavior:', 'Dart'])" />
+
+                    <img src="/images/Shad.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="spring-child summer-child fall-child Shad"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Shad'], ['Location:', 'River'], ['Time:', '9am - 2am'], ['Weather:', '#RAIN# Rain'], ['Difficulty:', '45'], ['Behavior:', 'Smooth'])" />
+
+                    <img src="/images/Catfish.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="spring-child summer-child fall-child Catfish"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Catfish'], ['Location:', 'River [Not in Summer]', 'Secret Woods'], ['Time:', '6am - 12am'], ['Weather:', '#RAIN# Rain'], ['Difficulty:', '75'], ['Behavior:', 'Mixed'], ['Hint:', '#RED#Use Rain Totem in Winter#RED#'], ['Hint:', '#RED#PUT IN ALL SEASON#RED#'])" />
+
+                    <img src="/images/Eel.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="spring-child fall-child Eel"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Eel'], ['Location:', 'Ocean'], ['Time:', '4pm - 2am'], ['Weather:', '#RAIN# Rain'], ['Difficulty:', '70'], ['Behavior:', 'Smooth'])" />
+                
+                    <img src="/images/Halibut.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="spring-child summer-child winter-child Halibut"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Halibut'], ['Location:', 'Ocean'], ['Time:', '6am - 11am', '7pm - 2am'], ['Weather:', 'Any'], ['Difficulty:', '50'], ['Behavior:', 'Sinker'])" />
+
+                    <img src="/images/Flounder.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="spring-child summer-child Flounder"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Flounder'], ['Location:', 'Ocean'], ['Ginger Island:', 'Oceans'], ['Time:', '6am - 8pm'], ['Weather:', 'Any'], ['Difficulty:', '50'], ['Behavior:', 'Sinker'], ['Hint:', '#RED#Catchable on Ginger Island in any Season#RED#'])" />
+
+                    <img src="/images/Sardine.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="spring-child fall-child winter-child Sardine"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Sardine'], ['Location:', 'Ocean'], ['Time:', '6am - 7pm'], ['Weather:', 'Any'], ['Difficulty:', '30'], ['Behavior:', 'Dart'])" />
+
+                    <img src="/images/Legend.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="spring-child Legend"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Legend'], ['Location:', 'Mountain Lake'], ['Spot:', 'Near the log'], ['Time:', '6am - 2am'], ['Weather:', '#RAIN# Rain'], ['Difficulty:', '110'], ['Behavior:', 'Mixed'], ['Requirement:', 'Level 10 Fishing'], ['#GOLD#LEGENDARY'])" />
+
+                </div>
+                
+                <!-- SUMMER -->
+                <div class="circle summer" id="summer">
+                    <div class="circle border"></div>
+                    <div class="seasonText summer" id="summerText" onclick="toggleSummer()">
+                        <p><b>Summer</b></p>
+                    </div>
+
+                    <img src="/images/Pufferfish.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child sun-child Pufferfish"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Pufferfish'], ['Location:', 'Ocean'], ['Time:', '12pm - 4pm'], ['Weather:', '#SUN# Sun'], ['Difficulty:', '80'], ['Behavior:', 'Floater'])" />
+                    
+                    <img src="/images/Rainbow_Trout.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child sun-child RainbowTrout"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Rainbow Trout'], ['Location:', 'River', 'Mountain Lake'], ['Time:', '6am - 7pm'], ['Weather:', '#SUN# Sun'], ['Difficulty:', '45'], ['Behavior:', 'Mixed'])" />
+
+                    <img src="/images/Pike.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child winter-child Pike"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Pike'], ['Location:', 'River', 'Forest Pond'], ['Time:', '6am - 2am'], ['Weather:', 'Any'], ['Difficulty:', '60'], ['Behavior:', 'Dart'])" />
+                    
+                    <img src="/images/Red_Snapper.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child fall-child winter-child RedSnapper"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Red Snapper'], ['Location:', 'Ocean'], ['Time:', '6am - 7pm'], ['Weather:', '#RAIN# Rain'], ['Difficulty:', '40'], ['Behavior:', 'Mixed'], ['Hint:', '#RED#Use Rain Totem in Winter#RED#'])" />
+
+                    <img src="/images/Super_Cucumber.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child fall-child SuperCucumber"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Super Cucumber'], ['Location:', 'Ocean'], ['Ginger Island:', 'Oceans'], ['Time:', '6pm - 2am'], ['Weather:', 'Any'], ['Difficulty:', '80'], ['Behavior:', 'Sinker'], ['Hint:', '#RED#Catchable on Ginger Island in any Season#RED#'])" />
+
+                    <img src="/images/Dorado.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child Dorado"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Dorado'], ['Location:', 'Forest River'], ['Time:', '6am - 7pm'], ['Weather:', 'Any'], ['Difficulty:', '78'], ['Behavior:', 'Mixed'])" />
+
+                    <img src="/images/Sturgeon.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child winter-child Sturgeon"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Sturgeon'], ['Location:', 'Mountain Lake'], ['Time:', '6am - 7pm'], ['Weather:', 'Any'], ['Difficulty:', '78'], ['Behavior:', 'Mixed'])" />
+
+                    <img src="/images/Red_Mullet.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child winter-child RedMullet"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Red Mullet'], ['Location:', 'Ocean'], ['Time:', '6am - 7pm'], ['Weather:', 'Any'], ['Difficulty:', '55'], ['Behavior:', 'Smooth'])" />
+
+                    <img src="/images/Tuna.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child winter-child Tuna"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Tuna'], ['Location:', 'Ocean'], ['Ginger Island:', 'Oceans'], ['Time:', '6am - 7pm'], ['Weather:', 'Any'], ['Difficulty:', '70'], ['Behavior:', 'Smooth'], ['Hint:', '#RED#Catchable on Ginger Island in any Season#RED#'])" />
+
+                    <img src="/images/Tilapia.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child fall-child Tilapia"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Tilapia'], ['Location:', 'Ocean'], ['Ginger Island:', 'Rivers'], ['Time:', '6am - 2pm'], ['Weather:', 'Any'], ['Difficulty:', '50'], ['Behavior:', 'Mixed'], ['Hint:', '#RED#Catchable on Ginger Island in any Season#RED#'])" />
+
+                    <img src="/images/Octopus.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child Octopus"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Octopus'], ['Location:', 'Ocean'], ['Time:', '6am - 1pm'], ['Weather:', 'Any'], ['Difficulty:', '95'], ['Behavior:', 'Sinker'])" />
+
+                    <img src="/images/Crimsonfish.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="summer-child Crimsonfish"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Crimsonfish'], ['Location:', 'Ocean'], ['Spot:', 'East Pier'], ['Time:', '6am - 2am'], ['Weather:', 'Any'], ['Difficulty:', '95'], ['Behavior:', 'Mixed'], ['Requirement:', 'Level 5 Fishing'], ['#GOLD#LEGENDARY'])" />
+
+                </div>
+
+                <!-- FALL -->
+                <div class="circle fall" id="fall">
+                    <div class="circle border"></div>
+                    <div class="seasonText fall" id="fallText" onclick="toggleFall()">
+                        <p><b>Fall</b></p>
+                    </div>
+                    <div class="seasonText winter" id="winterText" onclick="toggleWinter()">
+                        <p><b>Winter</b></p>
+                    </div>
+
+                    <img src="/images/Walleye.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="fall-child winter-child Walleye"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Walleye'], ['Location:', 'River', 'Forest Pond', 'Mountain Lake'], ['Time:', '12pm - 2am'], ['Weather:', '#RAIN# Rain'], ['Difficulty:', '45'], ['Behavior:', 'Smooth'], ['Hint:', '#RED#Use Rain Totem in Winter#RED#'])" />
+
+                    <img src="/images/Midnight_Carp.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="fall-child winter-child MidnightCarp"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Midnight Carp'], ['Location:', 'Mountain Lake', 'Forest Pond'], ['Ginger Island:', 'Pond', 'River'], ['Time:', '10pm - 2am'], ['Weather:', 'Any'], ['Difficulty:', '55'], ['Behavior:', 'Mixed'], ['Hint:', '#RED#Catchable on Ginger Island in any Season#RED#'])" />
+                    
+                    <img src="/images/Albacore.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="fall-child winter-child Albacore"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Albacore'], ['Location:', 'Ocean'], ['Time:', '6am - 11am', '6pm - 2am'], ['Weather:', 'Any'], ['Difficulty:', '60'], ['Behavior:', 'Mixed'])" />
+
+                    <img src="/images/Salmon.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="fall-child Salmon"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Salmon'], ['Location:', 'River'], ['Time:', '6am - 7pm'], ['Weather:', 'Any'], ['Difficulty:', '50'], ['Behavior:', 'Mixed'])" />
+
+                    <img src="/images/Tiger_Trout.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="fall-child winter-child TigerTrout"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Tiger Trout'], ['Location:', 'River'], ['Time:', '6am - 7pm'], ['Weather:', 'Any'], ['Difficulty:', '60'], ['Behavior:', 'Dart'])" />
+
+                    <img src="/images/Sea_Cucumber.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="fall-child winter-child SeaCucumber"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Sea Cucumber'], ['Location:', 'Ocean'], ['Time:', '6am - 7pm'], ['Weather:', 'Any'], ['Difficulty:', '40'], ['Behavior:', 'Sinker'])" />
+
+                    <img src="/images/Angler.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="fall-child Angler"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Angler'], ['Location:', 'North of JojaMart'], ['Spot:', 'Wooden plank bridge'], ['Time:', '6am - 2am'], ['Weather:', 'Any'], ['Difficulty:', '85'], ['Behavior:', 'Smooth'], ['Requirement:', 'Level 3 Fishing'], ['#GOLD#LEGENDARY'])" />
+
+                </div>
+
+                <!-- WINTER -->
+                <div class="circle winter" id="winter">
+                    <div class="circle border"></div>
+                </div>
+
+                <div class="circle winter2" id="winter2">
+                    <div class="circle border"></div>
+                    <div class="seasonText winter2" id="winterText2" onclick="toggleWinter()">
+                        <p><b>Winter</b></p>
+                    </div>
+
+                    <img src="/images/Perch.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="winter-child Perch"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Perch'], ['Location:', 'River', 'Forest Pond', 'Mountain Lake'], ['Time:', '6am - 2am'], ['Weather:', 'Any'], ['Difficulty:', '35'], ['Behavior:', 'Dart'])" />
+
+                    <img src="/images/Lingcod.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="winter-child Lingcod"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Lingcod'], ['Location:', 'River', 'Mountain Lake'], ['Time:', '6am - 2am'], ['Weather:', 'Any'], ['Difficulty:', '85'], ['Behavior:', 'Mixed'])" />
+
+                    <img src="/images/Squid.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="winter-child Squid"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Squid'], ['Location:', 'Ocean'], ['Time:', '6pm - 2am'], ['Weather:', 'Any'], ['Difficulty:', '75'], ['Behavior:', 'Sinker'])" />
+
+                    <img src="/images/Glacierfish.png" onclick="toggleItem(this)"
+                    oncontextmenu="showBundleItems(event, this)"
+                    draggable="false"
+                    class="winter-child Glacierfish"
+                    onmouseleave="hideInfo()"
+                    onmousemove="showInfo(event, this, ['Glacierfish'], ['Location:', 'Forest'], ['Spot:', 'South end of Arrowhead Island'], ['Time:', '6am - 2am'], ['Weather:', 'Any'], ['Difficulty:', '100'], ['Behavior:', 'Mixed'], ['Requirement:', 'Level 6 Fishing'], ['#GOLD#LEGENDARY'])" />
+
+                </div>
+
+                <div class="circle winter3" id ="winter3">
+
+                    <div class="circle border"></div>
+                    <div class="seasonText winter3" id="winterText3" onclick="toggleWinter()">
+                        <p><b>Winter</b></p>
+                    </div>                 
+                </div> 
+                            <!-- ANY SEASON -->
+                <div class="any-season-container" id ="any-season-container" oncontextmenu="return false">
+                    <div class="management-buttons">
+                        <button onclick="enableAllItems()">Reset Items</button>
+                        <button onclick="disableAllItems()">Shrink All</button>
+                        <button class="kofi" onclick="window.open('https://ko-fi.com/mocretion')">Ko-fi</button>
+                    </div>
+
+                    <div class="seasonText anySeason" id="anySeasonText">
+                        <p><b>Any Season</b></p>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <script src="/codewords.js"></script>
+    <script src="/helper.js"></script>
+    <script src="script.js"></script>
+</html>

@@ -1,0 +1,333 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: white;
+    user-select: none;    
+}
+
+.container{
+    position: relative;
+    width: 0px;
+    height: 90%;
+    top: 10px;
+    background: red;
+}
+
+.blur{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+    opacity: 0;
+    z-index: 49;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.circle{
+    position: absolute;
+    height: 65%;
+    border-radius: 50%;
+    border: none;
+    transition: background-color 0.3s, z-index 0.3s;
+    overflow: visible;
+}
+.circle.border{
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    top: 0;
+    left: -3px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid black;
+}
+.seasonText{
+    cursor: pointer;
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 10%;
+    font-size: 20;
+    z-index: 90;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-shadow: 2px 2px;
+}
+.circle > img{
+    position: absolute;
+
+    z-index: 90;
+
+    transition: transform 0.2s, opacity 0.2s;
+
+    cursor: pointer;
+}
+
+.circle.spring{
+    background-color: rgba(241, 252, 177, 0.5);
+}
+.seasonText.spring{
+    background-color: rgba(241, 252, 177, 1);
+}
+
+.circle.summer{
+    height: 75%;
+    background-color: rgba(244, 196, 196, 0.5);
+}
+.seasonText.summer{
+    background-color: rgba(244, 196, 196, 1);
+}
+
+.circle.fall{
+    height: 75%;
+    background-color: rgba(168, 212, 254, 0.5);
+}
+.seasonText.fall{
+    background-color: rgba(168, 212, 254, 1);
+}
+
+.circle.winter{
+    height: 55%;
+    background-color: rgba(219, 252, 255, 0.5);
+    top: 43%;
+    transform: rotate(-0.04turn);
+}
+.seasonText.winter{
+    background-color: rgba(219, 252, 255, 1);
+}
+.circle.winter2{
+    height: 50%;
+    background-color: rgba(219, 252, 255, 0.5);
+    top: 30%;
+}
+.seasonText.winter2{
+    background-color: rgba(219, 252, 255, 1);
+}
+.circle.winter3{
+    height: 13.5%;
+    background-color: rgba(219, 252, 255, 0.5);
+}
+.seasonText.winter3{
+    background-color: rgba(219, 252, 255, 1);
+}
+
+.any-season-container{
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    background-color: rgba(205, 189, 222, 0.5);
+    border-radius: 5% 5% 2% 2%;
+    left: 57.5%;
+    min-width: 500px;
+}
+.seasonText.anySeason{
+    background-color: rgba(205, 189, 222, 1);
+    left: 50%;
+    cursor: default;
+}
+
+.circle button{
+    border: none;
+}
+.circle > img{
+    width: 7.768%
+}
+.circle.spring > img{
+    width: 8.957%
+}
+.circle.winter2 > img{
+    width: 11.654%
+}
+/* SPRING */
+.Sunfish{
+    left: 80%;
+    top: 24%;
+}
+.Anchovy{
+    left: 24%;
+    top: 52%
+}
+.SmallmouthBass{
+    left: 27%;
+    top: 66%;
+}
+.Herring{
+    left: 46%;
+    top: 4%;
+}
+.Shad{
+    left: 65%;
+    top: 75%;
+}
+.Catfish{
+    left: 74%;
+    top: 56%;
+}
+.Eel{
+    left: 31%;
+    top: 78%;
+}
+.Halibut{
+    left: 65%;
+    top: 8%;
+}
+.Flounder{
+    left: 52%;
+    top: 28%;
+}
+.Sardine{
+    left: 9%;
+    top: 71%;
+}
+.Legend{
+    left: 20%;
+    top: 32%;
+}
+
+/* SUMMER */
+.Pufferfish{
+    left: 68%;
+    top: 20%;
+}
+.RainbowTrout{
+    left: 54%;
+    top: 20%;
+}
+.Pike{
+    left: 72%;
+    top: 55%;
+}
+.RedSnapper{
+    left: 60%;
+    top: 75%;
+}
+.SuperCucumber{
+    left: 46%;
+    top: 89%
+}
+.Dorado{
+    left: 60%;
+    top: 37%;
+}
+.Sturgeon{
+    left: 77%;
+    top: 65%;
+}
+.RedMullet{
+    left: 74%;
+    top: 80%;
+}
+.Tuna{
+    left: 85%;
+    top: 53%;
+}
+.Tilapia{
+    left: 30%;
+    top: 86%;
+}
+.Octopus{
+    left: 80%;
+    top: 30%;
+}
+.Crimsonfish{
+    left: 52%;
+    top: 4%;
+}
+
+/* FALL */
+.Walleye{
+    left: 20%;
+    top: 80%;
+}
+.MidnightCarp{
+    left: 16%;
+    top: 55%;
+}
+.Albacore{
+    left: 15%;
+    top: 70%;
+}
+.Salmon{
+    left: 40%;
+    top: 67%;
+}
+.TigerTrout{
+    left: 6%;
+    top: 64%;
+}
+.SeaCucumber{
+    left: 2.5%;
+    top: 43%;
+}
+.Angler{
+    left: 60%;
+    top: 78%;
+}
+
+/* WINTER */
+.Perch{
+    left: 71%;
+    top: 30%;
+}
+.Lingcod{
+    left: 73%;
+    top: 53%;
+}
+.Squid{
+    left: 58%;
+    top: 70%;   
+}
+.Glacierfish{
+    left: 36%;
+    top: 82%;
+}
+
+.info{
+    opacity: 0;
+    visibility: hidden;
+    position:absolute;
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+    z-index: 2000;
+    font-size: 22;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    transition: border-color 0.15s;
+}
+
+.management-buttons{
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+.management-buttons > button{
+    margin: 2px;
+    padding: 0.5%;
+    border: none;
+    background-color: brown;
+    color: white;
+    box-shadow: 2px 2px black;
+    border-radius: 5%;
+    font-size: 130%;
+    cursor: pointer;
+}
+.management-buttons > .kofi{
+    border-radius: 5% 5% 20% 5%;
+}
