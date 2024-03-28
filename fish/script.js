@@ -8,6 +8,7 @@ const winterCircle = document.getElementById("winter");
 const winterCircle2 = document.getElementById("winter2");
 const winterCircle3 = document.getElementById("winter3");
 const anySeasonContainer = document.getElementById("any-season-container");
+const sliderContainer = document.getElementById("slider-container");
 
 const springCircleText = document.getElementById("springText");
 const summerCircleText = document.getElementById("summerText");
@@ -34,6 +35,8 @@ const disabledOpacity = 0.5;
 const blurDiv = document.getElementById("blur");
 
 const cutQuantityProportion = 3.5;
+
+let filters = [];
 
 function initCookies(){
     let entry;
@@ -76,12 +79,52 @@ function getCircleBorder(circleCenter, radius, degree){
  * @param {String} except The ID no to influence
  * @param {Number} amount The amount to add
  */
-function changeitemsZIndexExcept(except, amount){
+function changeitemsZIndexExceptClass(except, amount){
 
     allItems.forEach(x =>{
         if(x.className.includes(except)) return;
-
+        
         changeZIndex(x, amount);
+    });
+}
+
+const blink = [
+    {filter: "brightness(100%", transform: "matrix(1, 0, 0, 1, 0, 0)"},
+    {filter: "brightness(200%", transform: "matrix(1.3, 0, 0, 0.7, 0, 0)"},
+    {filter: "brightness(100%", transform: "matrix(1, 0, 0, 1, 0, 0)"},
+]
+
+const blinkTiming = {
+    duration: 500,
+    iterations: 5
+}
+
+/**
+ * Changes the z-Index of all items but with a specific ID
+ * @param {[String]} except The info no to influence
+ * @param {Number} amount The amount to add
+ */
+function changeitemsZIndexExceptInfo(except, amount, doBlink = false){
+
+    let regex;
+
+    allItems.forEach(x =>{
+
+        let elementExcepted = true; 
+        except.forEach(y =>{
+
+            regex = new RegExp("(\\s|')" + y + "(,|'|\\s)");
+            if(!regex.test(x.onmousemove.toString())){
+                elementExcepted = false;
+                return;
+            }
+
+        });
+
+        if(!elementExcepted)
+            changeZIndex(x, amount);
+        else if(doBlink)
+            x.animate(blink, blinkTiming);
     });
 }
 
@@ -114,7 +157,7 @@ function toggleSun() {
         blurDiv.style.opacity = 0;
         sunCircle.style.zIndex = "auto";
 
-        changeitemsZIndexExcept("sun-child", 80);
+        changeitemsZIndexExceptClass("sun-child", 80);
 
     }else{
         deselectAllCircles();
@@ -122,7 +165,7 @@ function toggleSun() {
         blurDiv.style.opacity = 0.6;
         sunCircle.style.zIndex = 50;
 
-        changeitemsZIndexExcept("sun-child", -80);
+        changeitemsZIndexExceptClass("sun-child", -80);
     }
 
     sunEnabled = !sunEnabled;
@@ -138,7 +181,7 @@ function toggleSpring() {
         blurDiv.style.opacity = 0;
         springCircle.style.zIndex = "auto";
 
-        changeitemsZIndexExcept("spring-child", 80);
+        changeitemsZIndexExceptClass("spring-child", 80);
 
     }else{
         deselectAllCircles();
@@ -146,7 +189,7 @@ function toggleSpring() {
         blurDiv.style.opacity = 0.6;
         springCircle.style.zIndex = 50;
 
-        changeitemsZIndexExcept("spring-child", -80);
+        changeitemsZIndexExceptClass("spring-child", -80);
     }
 
     springEnabled = !springEnabled;
@@ -161,14 +204,14 @@ function toggleSummer() {
         blurDiv.style.opacity = 0;
         summerCircle.style.zIndex = "auto";
 
-        changeitemsZIndexExcept("summer-child", 80);
+        changeitemsZIndexExceptClass("summer-child", 80);
     }else{
         deselectAllCircles();
         setBackgroundAlpha(summerCircle, enabledOpacity);
         blurDiv.style.opacity = 0.6;
         summerCircle.style.zIndex = 50;
         
-        changeitemsZIndexExcept("summer-child", -80);
+        changeitemsZIndexExceptClass("summer-child", -80);
     }
 
     summerEnabled = !summerEnabled;
@@ -184,14 +227,14 @@ function toggleFall() {
         blurDiv.style.opacity = 0;
         fallCircle.style.zIndex = "auto";
 
-        changeitemsZIndexExcept("fall-child", 80);
+        changeitemsZIndexExceptClass("fall-child", 80);
     }else{
         deselectAllCircles();
         setBackgroundAlpha(fallCircle, enabledOpacity);
         blurDiv.style.opacity = 0.6;
         fallCircle.style.zIndex = 50;
 
-        changeitemsZIndexExcept("fall-child", -80);
+        changeitemsZIndexExceptClass("fall-child", -80);
     }
 
     fallEnabled = !fallEnabled;
@@ -210,7 +253,7 @@ function toggleWinter() {
         winterCircle2.style.zIndex = "auto";
         winterCircle3.style.zIndex = "auto";
 
-        changeitemsZIndexExcept("winter-child", 80);
+        changeitemsZIndexExceptClass("winter-child", 80);
     }else{
         deselectAllCircles();
         setBackgroundAlpha(winterCircle, enabledOpacity);
@@ -221,7 +264,7 @@ function toggleWinter() {
         winterCircle2.style.zIndex = 50;
         winterCircle3.style.zIndex = 50;
 
-        changeitemsZIndexExcept("winter-child", -80);
+        changeitemsZIndexExceptClass("winter-child", -80);
     }
     winterEnabled = !winterEnabled;
 }
@@ -262,6 +305,26 @@ function toggleItem(element){
     }
 
     setCookie(getCookieName(element), element.style.opacity == 0.3 ? "false" : "true", 60);
+}
+
+function changeFilters(element, filterWord){
+
+    if(filters.length > 0)
+        changeitemsZIndexExceptInfo(filters, 80);
+
+    if(element.checked){
+        filters.push(filterWord);
+    }else{
+        let index = filters.indexOf(filterWord);
+        if(index != -1)
+            filters.splice(index, 1);
+    }
+    if(filters.length > 0)
+        blurDiv.style.opacity = 0.6;
+    else
+        blurDiv.style.opacity = 0;
+
+    changeitemsZIndexExceptInfo(filters, -80, element.checked);
 }
 
 /**
@@ -342,6 +405,10 @@ function getItemInfoName(element){
     return element.onmousemove.toString().trim().split('\'')[1]
 }
 
+function getItemInfoLocations(element){
+    return element.onmousemove.toString().trim().split('\'')[5];
+}
+
 
 const observer = new ResizeObserver(entries => {
     const width = window.innerWidth;
@@ -349,9 +416,13 @@ const observer = new ResizeObserver(entries => {
 
     const anySeasonLeft = summerCircle.clientWidth * (1- 1 / cutQuantityProportion) + winterCircle2.clientWidth / 2.2;
     anySeasonContainer.style.left = anySeasonLeft;
-    anySeasonContainer.style.width = width * 0.71 - anySeasonLeft;
-    anySeasonContainer.style.height = height * 0.955 - 10;
+    anySeasonContainer.style.width = width * 0.7685 - anySeasonLeft;
+    anySeasonContainer.style.height = height * 0.3;
     anySeasonText.style.left = anySeasonContainer.clientWidth / 2 - anySeasonText.clientWidth / 2;
+
+    sliderContainer.style.left = anySeasonLeft;
+    sliderContainer.style.width = width * 0.7685 - anySeasonLeft;
+    sliderContainer.style.height = height * 0.638
 
     entries.forEach(entry => {
         entry.target.style.width = entry.target.clientHeight;
@@ -424,7 +495,7 @@ const observer = new ResizeObserver(entries => {
         }
     });
 
-    container.style.left = entries[1].target.clientHeight / 1.2;
+    container.style.left = entries[0].target.clientHeight - entries[0].target.clientHeight / cutQuantityProportion + 30;
     container.style.top = entries[1].target.clientHeight / 15;
 });
 

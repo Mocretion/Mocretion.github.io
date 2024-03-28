@@ -27,6 +27,7 @@ function replaceCodeWords(string){
     string = string.replace("#SQUID_KID#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Squid_Kid.png>");
     string = string.replace("#SHADOW_BRUTE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Shadow_Brute.png>");
     string = string.replace("#SHADOW_SHAMAN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Shadow_Shaman.png>");
+    string = string.replace("#ROCK_CRAB#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Rock_Crab.png>");
 
     // Animals
     string = string.replace("#CHICKEN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Brown_Chicken.png>");

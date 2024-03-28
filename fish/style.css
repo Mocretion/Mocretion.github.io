@@ -121,7 +121,7 @@
 
 .any-season-container{
     position: absolute;
-    top: 0%;
+    top: -4%;
     bottom: 0%;
     background-color: rgba(205, 189, 222, 0.5);
     border-radius: 5% 5% 2% 2%;
@@ -132,6 +132,48 @@
     background-color: rgba(205, 189, 222, 1);
     left: 50%;
     cursor: default;
+}
+
+.slider-container{
+    position: absolute;
+    top: 33%;
+    bottom: 0%;
+    background-color: rgba(205, 189, 222, 0.5);
+    border-radius: 5% 5% 2% 2%;
+    left: 57.5%;
+    min-width: 500px;
+}
+
+.group{
+    position: absolute;
+    text-align: center;
+    font-size: 25px;
+    width: 100%;
+    pointer-events: none;
+    top: 22%;
+}
+.group > p{
+    position: relative;
+    z-index: 1000;
+}
+
+.group-children{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.group-children > div{
+    width: 6%;
+    margin: 1%;
+}
+.group-children img{
+    width: 100%;
+    opacity: 1;
+    transition: transform 0.2s, opacity 0.2s;
+    z-index: 90;
+    cursor: pointer;
+    pointer-events: all;
+    position: relative;
 }
 
 .circle button{
@@ -274,20 +316,32 @@
 
 /* WINTER */
 .Perch{
-    left: 71%;
-    top: 30%;
+    left: 68%;
+    top: 14%;
 }
 .Lingcod{
-    left: 73%;
-    top: 53%;
+    left: 78%;
+    top: 31%;
 }
 .Squid{
     left: 58%;
-    top: 70%;   
+    top: 50%;   
 }
 .Glacierfish{
-    left: 36%;
-    top: 82%;
+    left: 79%;
+    top: 58%;
+}
+.MidnightSquid{
+    left: 44%;
+    top: 68%;
+}
+.SpookFish{
+    left: 64%;
+    top: 76%;
+}
+.Blobfish{
+    left: 34%;
+    top: 84%;
 }
 
 .info{
@@ -307,6 +361,82 @@
 
     transition: border-color 0.15s;
 }
+.sliders{
+    vertical-align: middle;
+}
+
+.slider-text{
+    position: relative;
+    width: 100%;
+    left: 10px;
+    vertical-align: bottom;
+    font-size: 25;
+}
+.sliders-child{
+    position: relative;
+    margin-top: 3%;
+    left: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 .management-buttons{
     position: absolute;
