@@ -23,7 +23,7 @@
                 <div class="circle spring" id ="spring">
 
                     <div class="circle border"></div>
-                    <div class="seasonText spring" id="springText" onclick="toggleSpring()">
+                    <div class="seasonText spring" id="springText">
                         <p><b>Spring</b></p>
                     </div>
 
@@ -102,7 +102,7 @@
                 <!-- SUMMER -->
                 <div class="circle summer" id="summer">
                     <div class="circle border"></div>
-                    <div class="seasonText summer" id="summerText" onclick="toggleSummer()">
+                    <div class="seasonText summer" id="summerText">
                         <p><b>Summer</b></p>
                     </div>
 
@@ -195,10 +195,10 @@
                 <!-- FALL -->
                 <div class="circle fall" id="fall">
                     <div class="circle border"></div>
-                    <div class="seasonText fall" id="fallText" onclick="toggleFall()">
+                    <div class="seasonText fall" id="fallText">
                         <p><b>Fall</b></p>
                     </div>
-                    <div class="seasonText winter" id="winterText" onclick="toggleWinter()">
+                    <div class="seasonText winter" id="winterText">
                         <p><b>Winter</b></p>
                     </div>
 
@@ -214,7 +214,7 @@
                     draggable="false"
                     class="fall-child winter-child MidnightCarp"
                     onmouseleave="hideInfo()"
-                    onmousemove="showInfo(event, this, ['Midnight Carp'], ['Location:', 'Mountain Lake', 'Forest Pond'], ['Ginger Island:', 'Pond', 'River'], ['Time:', '10pm - 2am'], ['Weather:', 'Any'], ['Difficulty:', '55'], ['Behavior:', 'Mixed'], ['Hint:', '#RED#Catchable on Ginger Island in any Season#RED#'])" />
+                    onmousemove="showInfo(event, this, ['Midnight Carp'], ['Location:', 'Mountain Lake', 'Forest Pond'], ['Ginger Island:', 'Pond', 'Rivers'], ['Time:', '10pm - 2am'], ['Weather:', 'Any'], ['Difficulty:', '55'], ['Behavior:', 'Mixed'], ['Hint:', '#RED#Catchable on Ginger Island in any Season#RED#'])" />
                     
                     <img src="/images/Albacore.png" onclick="toggleItem(this)"
                     oncontextmenu="showBundleItems(event, this)"
@@ -260,7 +260,7 @@
 
                 <div class="circle winter2" id="winter2">
                     <div class="circle border"></div>
-                    <div class="seasonText winter2" id="winterText2" onclick="toggleWinter()">
+                    <div class="seasonText winter2" id="winterText2">
                         <p><b>Winter</b></p>
                     </div>
 
@@ -318,7 +318,7 @@
                 <div class="circle winter3" id ="winter3">
 
                     <div class="circle border"></div>
-                    <div class="seasonText winter3" id="winterText3" onclick="toggleWinter()">
+                    <div class="seasonText winter3" id="winterText3">
                         <p><b>Winter</b></p>
                     </div>                 
                 </div> 
@@ -626,6 +626,17 @@
                             <span class="slider-text"><b>Highlight Mountain Lake Fish</b></span>
                         </div>
                     </div>
+
+                    <div class="drop-zone" id="drop_zone" ondrop="dropSafeFile(event)" ondragover="return false">
+                        <p><b>Drag and drop SaveGameInfo here</b></p>
+                        <p>Your save folder is in:</p>
+                        <p>[Windows]</p>
+                        <p>%appdata%/StardewValley/Saves</p>
+                        <p>[Linux]</p>
+                        <p>~/.config/StardewValley/Saves</p>
+                        <p>[Mac]</p>
+                        <p>~/.config/StardewValley/Saves</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -633,6 +644,7 @@
     </body>
 
     <script src="/codewords.js"></script>
+    <script src="/fish/idconverter.js"></script>
     <script src="/helper.js"></script>
     <script src="script.js"></script>
 </html>

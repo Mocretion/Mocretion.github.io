@@ -84,6 +84,8 @@ function changeitemsZIndexExceptClass(except, amount){
     allItems.forEach(x =>{
         if(x.className.includes(except)) return;
         
+        if(filters.length > 0) return;
+
         changeZIndex(x, amount);
     });
 }
@@ -104,28 +106,32 @@ const blinkTiming = {
  * @param {[String]} except The info no to influence
  * @param {Number} amount The amount to add
  */
-function changeitemsZIndexExceptInfo(except, amount, doBlink = false){
-
-    let regex;
+function changeitemsZIndexExceptInfo(amount, doBlink = false){
 
     allItems.forEach(x =>{
 
-        let elementExcepted = true; 
-        except.forEach(y =>{
-
-            regex = new RegExp("(\\s|')" + y + "(,|'|\\s)");
-            if(!regex.test(x.onmousemove.toString())){
-                elementExcepted = false;
-                return;
-            }
-
-        });
+        let elementExcepted = isItemInFilter(x);
 
         if(!elementExcepted)
             changeZIndex(x, amount);
         else if(doBlink)
             x.animate(blink, blinkTiming);
     });
+}
+
+function isItemInFilter(element){
+
+    let inFilter = true;
+    filters.forEach(x =>{
+        let regex = new RegExp("(\\s|')" + x + "(,|'|\\s)");
+        if(!regex.test(element.onmousemove.toString())){
+            inFilter = false;
+            return;
+        }
+
+    });
+
+    return inFilter;
 }
 
 /**
@@ -144,31 +150,6 @@ function deselectAllCircles(){
     if(summerEnabled) toggleSummer();
     if(fallEnabled) toggleFall();
     if(winterEnabled) toggleWinter();
-    if(sunEnabled) toggleSun();
-}
-
-/**
- * Toggles focus from the sun circle
- */
-function toggleSun() {
-
-    if(sunEnabled){
-        setBackgroundAlpha(sunCircle, disabledOpacity);
-        blurDiv.style.opacity = 0;
-        sunCircle.style.zIndex = "auto";
-
-        changeitemsZIndexExceptClass("sun-child", 80);
-
-    }else{
-        deselectAllCircles();
-        setBackgroundAlpha(sunCircle, enabledOpacity);
-        blurDiv.style.opacity = 0.6;
-        sunCircle.style.zIndex = 50;
-
-        changeitemsZIndexExceptClass("sun-child", -80);
-    }
-
-    sunEnabled = !sunEnabled;
 }
 
 /**
@@ -178,7 +159,8 @@ function toggleSpring() {
 
     if(springEnabled){
         setBackgroundAlpha(springCircle, disabledOpacity);
-        blurDiv.style.opacity = 0;
+        if(filters.length == 0)
+            blurDiv.style.opacity = 0;
         springCircle.style.zIndex = "auto";
 
         changeitemsZIndexExceptClass("spring-child", 80);
@@ -201,7 +183,8 @@ function toggleSpring() {
 function toggleSummer() {
     if(summerEnabled){
         setBackgroundAlpha(summerCircle, disabledOpacity);
-        blurDiv.style.opacity = 0;
+        if(filters.length == 0)
+            blurDiv.style.opacity = 0;
         summerCircle.style.zIndex = "auto";
 
         changeitemsZIndexExceptClass("summer-child", 80);
@@ -223,8 +206,8 @@ function toggleSummer() {
 function toggleFall() {
     if(fallEnabled){
         setBackgroundAlpha(fallCircle, disabledOpacity);
-        fallCircle.style.zIndex = "auto";
-        blurDiv.style.opacity = 0;
+        if(filters.length == 0)
+            blurDiv.style.opacity = 0;
         fallCircle.style.zIndex = "auto";
 
         changeitemsZIndexExceptClass("fall-child", 80);
@@ -248,7 +231,9 @@ function toggleWinter() {
         setBackgroundAlpha(winterCircle, disabledOpacity);
         setBackgroundAlpha(winterCircle2, disabledOpacity);
         setBackgroundAlpha(winterCircle3, disabledOpacity);
-        blurDiv.style.opacity = 0;
+        if(filters.length == 0)
+            blurDiv.style.opacity = 0;
+
         winterCircle.style.zIndex = "auto";
         winterCircle2.style.zIndex = "auto";
         winterCircle3.style.zIndex = "auto";
@@ -294,7 +279,7 @@ function disableAllItems(){
  * @param {HTMLElement} element The item to toggle
  */
 function toggleItem(element){
-    const opacity = window.getComputedStyle(element).getPropertyValue("opacity");
+    const opacity = element.style.opacity;
     if(opacity == 0.3){
         element.style.opacity = 1;
         element.style.transform = 'scale(1)';
@@ -310,7 +295,7 @@ function toggleItem(element){
 function changeFilters(element, filterWord){
 
     if(filters.length > 0)
-        changeitemsZIndexExceptInfo(filters, 80);
+        changeitemsZIndexExceptInfo(80);
 
     if(element.checked){
         filters.push(filterWord);
@@ -321,10 +306,10 @@ function changeFilters(element, filterWord){
     }
     if(filters.length > 0)
         blurDiv.style.opacity = 0.6;
-    else
+    else if(!springEnabled && !summerEnabled && !fallEnabled && !winterEnabled)
         blurDiv.style.opacity = 0;
 
-    changeitemsZIndexExceptInfo(filters, -80, element.checked);
+    changeitemsZIndexExceptInfo(-80, element.checked);
 }
 
 /**
@@ -397,6 +382,50 @@ function calculateLines(element, lines){
     infoRight.innerHTML = contentRight;
 }
 
+function dropSafeFile(event){
+    if(event.dataTransfer.files.length == 0) return;
+
+    var file = event.dataTransfer.files[0];
+    var reader = new FileReader();
+    reader.readAsText(file);
+
+    reader.addEventListener(
+        "load",
+        () => {
+            let parser = new DOMParser();
+            let xmlDoc = parser.parseFromString(reader.result, "text/xml");
+            let elements = xmlDoc.getElementsByTagName("fishCaught");
+            let fishCaughtList = [];
+            for (let i = 0; i < elements.length; i++) {
+                const element = elements[i];
+                if(element.parentNode.nodeName == "Farmer"){
+                    fishCaughtList = element;
+                    break;
+                }                
+            }
+
+            enableAllItems();
+
+            fishCaughtList.childNodes.forEach(x =>{
+                let id = x.childNodes[0].childNodes[0].childNodes[0].nodeValue.toString();
+                id = id.replace("(O)", "");
+
+                let item = getItemByInfoName(getNameById(id));
+                if(item == null) return;
+                
+                toggleItem(item);
+            });
+        },
+        false,
+      );
+
+    event.preventDefault();
+}
+
+function dragSafeFileOver(event){
+    event.preventDefault();
+}
+
 /**
  * @param {HTMLElement} element item to get the info from
  * @returns item name from their info div
@@ -405,10 +434,29 @@ function getItemInfoName(element){
     return element.onmousemove.toString().trim().split('\'')[1]
 }
 
+/**
+ * @param {HTMLElement} element 
+ * @returns item locations from their info div
+ */
 function getItemInfoLocations(element){
     return element.onmousemove.toString().trim().split('\'')[5];
 }
 
+/**
+ * @param {String} name items name 
+ * @returns the items HTMLElement
+ */
+function getItemByInfoName(name){
+    let element = null;
+    allItems.forEach(x =>{
+        if(x.onmousemove.toString().trim().split('\'')[1] == name){
+            element = x;
+            return;
+        }
+    });
+
+    return element;
+}
 
 const observer = new ResizeObserver(entries => {
     const width = window.innerWidth;
