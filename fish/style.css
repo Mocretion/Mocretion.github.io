@@ -145,13 +145,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
 }
 .drop-zone{
     border: 2px dotted black;
     flex-grow: 2;
     height: 80%;
     text-align: center;
-    user-select:text;
+    user-select: text;
+    margin-right: 5px;
 }
 .drop-zone > p{
     position: relative;

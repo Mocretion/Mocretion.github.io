@@ -168,7 +168,7 @@ function toggleSpring() {
     }else{
         deselectAllCircles();
         setBackgroundAlpha(springCircle, enabledOpacity);
-        blurDiv.style.opacity = 0.6;
+        blurDiv.style.opacity = 0.8;
         springCircle.style.zIndex = 50;
 
         changeitemsZIndexExceptClass("spring-child", -80);
@@ -191,7 +191,7 @@ function toggleSummer() {
     }else{
         deselectAllCircles();
         setBackgroundAlpha(summerCircle, enabledOpacity);
-        blurDiv.style.opacity = 0.6;
+        blurDiv.style.opacity = 0.8;
         summerCircle.style.zIndex = 50;
         
         changeitemsZIndexExceptClass("summer-child", -80);
@@ -214,7 +214,7 @@ function toggleFall() {
     }else{
         deselectAllCircles();
         setBackgroundAlpha(fallCircle, enabledOpacity);
-        blurDiv.style.opacity = 0.6;
+        blurDiv.style.opacity = 0.8;
         fallCircle.style.zIndex = 50;
 
         changeitemsZIndexExceptClass("fall-child", -80);
@@ -244,7 +244,7 @@ function toggleWinter() {
         setBackgroundAlpha(winterCircle, enabledOpacity);
         setBackgroundAlpha(winterCircle2, enabledOpacity);
         setBackgroundAlpha(winterCircle3, enabledOpacity);
-        blurDiv.style.opacity = 0.6;
+        blurDiv.style.opacity = 0.8;
         winterCircle.style.zIndex = 50;
         winterCircle2.style.zIndex = 50;
         winterCircle3.style.zIndex = 50;
@@ -305,7 +305,7 @@ function changeFilters(element, filterWord){
             filters.splice(index, 1);
     }
     if(filters.length > 0)
-        blurDiv.style.opacity = 0.6;
+        blurDiv.style.opacity = 0.8;
     else if(!springEnabled && !summerEnabled && !fallEnabled && !winterEnabled)
         blurDiv.style.opacity = 0;
 
