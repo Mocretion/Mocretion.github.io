@@ -51,7 +51,6 @@
     border: 3px solid black;
 }
 .seasonText{
-    cursor: pointer;
     position: absolute;
     border: 2px solid black;
     border-radius: 10%;
