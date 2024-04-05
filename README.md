@@ -1,4 +1,7 @@
-# [Link to Website](https://mocretion.github.io)
+# Links
+
+[Community Center Cheat Sheet](https://mocretion.github.io)
+[Fishing Cheat Sheet](https://mocretion.github.io/fish)
 
 # Credits
 
