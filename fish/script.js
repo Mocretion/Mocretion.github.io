@@ -34,7 +34,7 @@ const enabledOpacity = 1;
 const disabledOpacity = 0.5;
 const blurDiv = document.getElementById("blur");
 
-const cutQuantityProportion = 3.5;
+const cutQuantityProportion = 4.5;
 
 let filters = [];
 
@@ -327,7 +327,7 @@ function showInfo(e, element, ...lines){
     else
         infoElement.style.left = e.clientX - 30 - infoElement.clientWidth;
 
-    if(e.clientY / window.innerHeight > 0.7)  // Show info text on left of mouse
+    if(e.clientY / window.innerHeight > 0.66)  // Show info text on left of mouse
         infoElement.style.top = e.clientY -infoElement.clientHeight;
     else
         infoElement.style.top = e.clientY;
@@ -466,7 +466,7 @@ const observer = new ResizeObserver(entries => {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    const anySeasonLeft = summerCircle.clientWidth * (1- 1 / cutQuantityProportion) + winterCircle2.clientWidth / 2.2;
+    const anySeasonLeft = summerCircle.clientWidth * (1- 1 / cutQuantityProportion) + winterCircle2.clientWidth / 2.8;
     anySeasonContainer.style.left = anySeasonLeft;
     anySeasonContainer.style.width = width * 0.7685 - anySeasonLeft;
     anySeasonContainer.style.height = height * 0.3;
@@ -504,7 +504,7 @@ const observer = new ResizeObserver(entries => {
                 break
             case "fall":
                 entry.target.style.left = -entry.target.clientWidth / 1.7;
-                entry.target.style.top = entry.target.clientHeight / 3;
+                entry.target.style.top = entry.target.clientHeight / 2.3;
 
                 fallCircleText.style.fontSize = width / 80;
                 border = getCircleBorder(center, center, 310);
@@ -533,15 +533,15 @@ const observer = new ResizeObserver(entries => {
                 break;
             case "winter3":
                 entry.target.style.width = entry.target.clientHeight * 2;
-                entry.target.style.left = -entry.target.clientWidth / 1.2;
+                entry.target.style.left = -entry.target.clientWidth / 1.3;
 
                 winterCircleText3.style.fontSize = width / 80;
                 border = getCircleBorder(center, center, 105);
 
-                winterCircleText3.style.left = entry.target.clientWidth / 1.2 - winterCircleText3.clientWidth / 2;
+                winterCircleText3.style.left = entry.target.clientWidth / 1.5 - winterCircleText3.clientWidth / 2;
                 winterCircleText3.style.bottom = border[1] - winterCircleText3.clientHeight / 2;
 
-                entry.target.style.top = -container.clientHeight * 0.05 + winterCircleText3.clientHeight;
+                entry.target.style.top = -container.clientHeight * 0.01 + winterCircleText3.clientHeight;
 
                 break;
         }

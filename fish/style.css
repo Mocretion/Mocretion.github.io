@@ -79,6 +79,7 @@
 }
 
 .circle.spring{
+    height: 60%;
     background-color: rgba(241, 252, 177, 0.5);
 }
 .seasonText.spring{
@@ -94,7 +95,7 @@
 }
 
 .circle.fall{
-    height: 75%;
+    height: 70%;
     background-color: rgba(168, 212, 254, 0.5);
 }
 .seasonText.fall{
@@ -206,105 +207,108 @@
     width: 7.768%
 }
 .circle.spring > img{
-    width: 8.957%
+    width: 9.7%
+}
+.circle.fall > img{
+    width: 8.32%
 }
 .circle.winter2 > img{
     width: 9.7%
 }
 /* SPRING */
 .Sunfish{
-    left: 80%;
-    top: 24%;
+    left: 82%;
+    top: 35%;
 }
 .Anchovy{
-    left: 24%;
-    top: 52%
+    left: 32%;
+    top: 63%
 }
 .SmallmouthBass{
-    left: 27%;
-    top: 66%;
+    left: 37%;
+    top: 75%;
 }
 .Herring{
-    left: 46%;
-    top: 4%;
+    left: 53%;
+    top: 10%;
 }
 .Shad{
-    left: 65%;
-    top: 75%;
+    left: 67%;
+    top: 68%;
 }
 .Catfish{
     left: 74%;
     top: 56%;
 }
 .Eel{
-    left: 31%;
-    top: 78%;
+    left: 42%;
+    top: 88%;
 }
 .Halibut{
-    left: 65%;
-    top: 8%;
+    left: 72%;
+    top: 14%;
 }
 .Flounder{
-    left: 52%;
-    top: 28%;
+    left: 60%;
+    top: 35%;
 }
 .Sardine{
-    left: 9%;
-    top: 71%;
+    left: 18%;
+    top: 80%;
 }
 .Legend{
-    left: 20%;
-    top: 32%;
+    left: 23%;
+    top: 28%;
 }
 
 /* SUMMER */
 .Pufferfish{
-    left: 72%;
-    top: 20%;
+    left: 65%;
+    top: 22%;
 }
 .RainbowTrout{
-    left: 54%;
-    top: 20%;
+    left: 45%;
+    top: 22%;
 }
 .Pike{
-    left: 70%;
+    left: 64%;
     top: 58%;
 }
 .RedSnapper{
-    left: 57%;
+    left: 48%;
     top: 70%;
 }
 .SuperCucumber{
-    left: 57%;
+    left: 49%;
     top: 86%
 }
 .Dorado{
-    left: 60%;
+    left: 50%;
     top: 37%;
 }
 .Sturgeon{
-    left: 77%;
-    top: 67%;
+    left: 73%;
+    top: 68%;
 }
 .RedMullet{
-    left: 74%;
-    top: 80%;
+    left: 66%;
+    top: 82%;
 }
 .Tuna{
     left: 85%;
     top: 55%;
 }
 .Tilapia{
-    left: 30%;
-    top: 86%;
+    left: 27%;
+    top: 81%;
 }
 .Octopus{
-    left: 79%;
+    left: 75%;
     top: 45%;
 }
 .Crimsonfish{
-    left: 52%;
-    top: 4%;
+    left: 55%;
+    top: 7%;
 }
 
 /* FALL */
@@ -313,8 +317,8 @@
     top: 80%;
 }
 .MidnightCarp{
-    left: 16%;
-    top: 55%;
+    left: 17%;
+    top: 48%;
 }
 .Albacore{
     left: 15%;
@@ -325,12 +329,12 @@
     top: 67%;
 }
 .TigerTrout{
-    left: 6%;
-    top: 64%;
+    left: 8%;
+    top: 60%;
 }
 .SeaCucumber{
-    left: 2.5%;
-    top: 43%;
+    left: 3%;
+    top: 40%;
 }
 .Angler{
     left: 60%;
@@ -339,12 +343,12 @@
 
 /* WINTER */
 .Perch{
-    left: 68%;
-    top: 14%;
+    left: 74%;
+    top: 22%;
 }
 .Lingcod{
-    left: 78%;
-    top: 31%;
+    left: 80%;
+    top: 38%;
 }
 .Squid{
     left: 58%;
