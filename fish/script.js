@@ -520,7 +520,7 @@ const observer = new ResizeObserver(entries => {
                 break;
             case "winter2":
                 entry.target.style.width = entry.target.clientHeight;
-                entry.target.style.left = entries[0].target.clientWidth / 3;
+                entry.target.style.left = entries[0].target.clientWidth / 4;
                 winterCircleText2.style.fontSize = width / 80;
 
                 border = getCircleBorder(center, center, 300);

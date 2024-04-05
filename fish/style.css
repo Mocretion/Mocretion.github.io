@@ -103,7 +103,7 @@
     background-color: rgba(219, 252, 255, 1);
 }
 .circle.winter2{
-    height: 50%;
+    height: 60%;
     background-color: rgba(219, 252, 255, 0.5);
     top: 30%;
 }
@@ -201,7 +201,7 @@
     width: 8.957%
 }
 .circle.winter2 > img{
-    width: 11.654%
+    width: 9.7%
 }
 /* SPRING */
 .Sunfish{
@@ -263,12 +263,12 @@
     top: 58%;
 }
 .RedSnapper{
-    left: 60%;
-    top: 75%;
+    left: 57%;
+    top: 70%;
 }
 .SuperCucumber{
-    left: 46%;
-    top: 89%
+    left: 57%;
+    top: 86%
 }
 .Dorado{
     left: 60%;
