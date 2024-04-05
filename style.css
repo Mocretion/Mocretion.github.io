@@ -12,6 +12,14 @@
     user-select: none;    
 }
 
+.darkMode{
+    position: absolute;
+    width: 50px;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
 .container{
     position: relative;
     width: 0px;

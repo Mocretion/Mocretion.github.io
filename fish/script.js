@@ -39,6 +39,10 @@ const cutQuantityProportion = 3.5;
 let filters = [];
 
 function initCookies(){
+    if(getCookie("darkMode") == "true"){
+        toggleDarkMode();
+    }
+
     let entry;
     allItems.forEach(x => {
         const cookie = getCookie(getCookieName(x));

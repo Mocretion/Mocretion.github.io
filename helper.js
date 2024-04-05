@@ -1,3 +1,6 @@
+const mainElement = document.getElementById("main");
+let darkMode = false;
+
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -19,4 +22,14 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+function toggleDarkMode() {
+    if(!darkMode)
+        mainElement.style.backgroundColor = 'rgba(100, 100, 100, 1)';
+    else
+        mainElement.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+
+    darkMode = !darkMode;
+    setCookie("darkMode", darkMode, 60);
 }

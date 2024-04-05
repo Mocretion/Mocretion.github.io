@@ -51,6 +51,10 @@ const overwriteDictMax ={
  * Fills "dict" with bundle entries
  */
 function initBundles(){
+    if(getCookie("darkMode") == "true"){
+        toggleDarkMode();
+    }
+
     let entry;
     allItems.forEach(x => {
         entry = getItemInfoBundleName(x);
