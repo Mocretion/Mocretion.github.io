@@ -407,6 +407,14 @@
     left: 10px;
 }
 
+.sliders-child:nth-child(3),
+.sliders-child:nth-child(8){
+    position: relative;
+    margin-top: 8%;
+    left: 10px;
+}
+
+
 .switch {
     position: relative;
     display: inline-block;
