@@ -127,7 +127,7 @@ function isItemInFilter(element){
 
     let inFilter = true;
     filters.forEach(x =>{
-        let regex = new RegExp("(\\s|')" + x + "(,|'|\\s)");
+        let regex = new RegExp("(\\s|')" + x + "[A-Z]*#?(,|'|\\s)");
         if(!regex.test(element.onmousemove.toString())){
             inFilter = false;
             return;
