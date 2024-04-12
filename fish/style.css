@@ -492,6 +492,6 @@ input:checked + .slider:before {
     font-size: 130%;
     cursor: pointer;
 }
-.management-buttons > .kofi{
+.management-buttons > .home{
     border-radius: 5% 5% 20% 5%;
 }

@@ -1,0 +1,506 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: white;
+    user-select: none;    
+}
+
+.darkMode{
+    position: absolute;
+    width: 50px;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.container{
+    position: relative;
+    width: 0px;
+    height: 90%;
+    top: 10px;
+    background: red;
+}
+
+.blur{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+    opacity: 0;
+    z-index: 49;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.seasonText{
+    cursor: pointer;
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 10%;
+    font-size: 20;
+    z-index: 100;
+    padding-left: 5px;
+    padding-right: 5px;
+    box-shadow: 2px 2px;
+}
+
+.circle{
+    position: absolute;
+    height: 65%;
+    border-radius: 50%;
+    border: none;
+    transition: background-color 0.3s, z-index 0.3s;
+    overflow: visible;
+}
+.circle.spring{
+    background-color: rgba(241, 252, 177, 0.5);
+}
+.seasonText.spring{
+    background-color: rgba(241, 252, 177, 1);
+}
+
+.circle.summer{
+    height: 75%;
+    background-color: rgba(244, 196, 196, 0.5);
+}
+.seasonText.summer{
+    background-color: rgba(244, 196, 196, 1);
+}
+
+.circle.fall{
+    height: 75%;
+    background-color: rgba(168, 212, 254, 0.5);
+}
+.seasonText.fall{
+    background-color: rgba(168, 212, 254, 1);
+}
+
+.circle.winter{
+    height: 20%;
+    background-color: rgba(219, 252, 255, 0.5);
+    top: 50%;
+    transform: rotate(0.15turn);
+}
+.seasonText.winter{
+    background-color: rgba(219, 252, 255, 1);
+    transform: rotate(-0.15turn);
+}
+.circle.winter2{
+    height: 40%;
+    background-color: rgba(219, 252, 255, 0.5);
+    top: 50%;
+}
+.seasonText.winter2{
+    background-color: rgba(219, 252, 255, 1);
+}
+
+.any-season-container{
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    background-color: rgba(205, 189, 222, 0.5);
+    border-radius: 5% 5% 2% 2%;
+    left: 57.5%;
+    min-width: 700px;
+}
+.seasonText.anySeason{
+    background-color: rgba(205, 189, 222, 1);
+    left: 50%;
+    cursor: default;
+}
+
+.circle.border{
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+    top: 0;
+    left: -3px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 3px solid black;
+}
+.circle button{
+    border: none;
+}
+
+/* Bundles */
+.group{
+    position: absolute;
+    text-align: center;
+    font-size: 25px;
+    width: 40%;
+    pointer-events: none;
+}
+.group > p{
+    position: relative;
+    z-index: 1000;
+}
+
+.group-children{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.group-children > div{
+    flex-basis: 25%;
+    margin: 3%;
+}
+.group-children img{
+    width: 100%;
+    opacity: 1;
+    transition: transform 0.2s, opacity 0.2s;
+    z-index: 90;
+    cursor: pointer;
+    pointer-events: all;
+    position: relative;
+}
+
+/* Spring */
+
+.spring-fruits{ /* Fruits */
+    left: 35%;
+    top: 3%;
+}
+.spring-fruits > .group-children > div{
+    margin: 2px;
+}
+
+.spring-crops{  /* Crops */
+    left: 12%;
+    top: 19%;
+}
+.spring-crops > .group-children div {
+    margin: 1%;
+}
+
+.spring-forage{  /* Forage */
+    left: 0%;
+    top: 50%;
+}
+.spring-fall-forage{
+    left: 21%;
+    top: 65.5%;
+}
+
+.spring-fall-winter-fish-header{  /* Fish */  /* Fish Text Spring-Fall*/
+    left: 22.5%;
+    top: 81%;
+}
+.spring-fall-winter-fish{
+    left: 25%;
+    top: 84%;
+    width: 10.5%;
+}
+.spring-fall-winter-fish > .group-children > div{
+    flex-basis: 100%;
+}
+.spring-fall-fish{
+    left: 24%;
+    top: 87%;
+}
+.center-fish-header{  /* Fish Text Spring-Summer */
+    left: 58%;
+    top: 32%;
+}
+.spring-summer-fish{
+    left: 58%;
+    top: 38%;
+}
+.spring-summer-fall-fish{
+    left: 56%;
+    top: 51%;
+}
+
+.group.artisan-non-winter{  /* Artisan in center */
+    width: 25%;
+}
+.artisan-non-winter > .group-children > div{
+    flex-basis: 40%;
+    margin: 1px;
+}
+.artisan-non-winter{
+    left: 58%;
+    top: 68%;
+}
+
+/* Summer */
+.summer-forage{  /* Forage */
+    left: 32%;
+    top: 3%
+}
+.group.summer-forage{
+    width: 25.4%;
+}
+.summer-forage > .group-children > div{
+    flex-basis: 34%;
+}
+
+.summer-fruits{  /* Fruits */
+    left: 54%;
+    top: 13%;
+}
+.group.summer-fruits{
+    width: 34.7%;
+}
+.summer-fruits > .group-children > div{
+    margin: 2px;
+}
+
+.summer-crops{  /* Crops */
+    left: 44%;
+    top: 30%;
+}
+.group.summer-crops{
+    width: 45.4%;
+}
+.summer-crops > .group-children > div{
+    flex-basis: 19%;
+    margin: 2px;
+}
+
+.summer-fall-crops{  /* Crops with fall */
+    left: 36%;
+    top: 53%
+}
+.group.summer-fall-crops{
+    width: 21.6%;
+}
+.summer-fall-crops > .group-children > div{
+    flex-basis: 40%;
+    margin: 2px;
+}
+
+.summer-fall-forage-header{  /* Forage with fall */
+    top: 84%;
+    left: 22%;
+}
+
+.summer-fall-forage1{
+    left: 11%;
+    top: 82.5%;
+}
+.group.summer-fall-forage1{
+    width: 34.6%;
+}
+.summer-fall-forage2{
+    left: 19%;
+    top: 88%;
+}
+.group.summer-fall-forage2{
+    width: 34.6%;
+}
+.summer-fall-forage3{
+    left: 28%;
+    top: 89.5%;
+}
+.group.summer-fall-forage3{
+    width: 34.6%;
+}
+
+.summer-fall-winter-fish-header{  /* Fish */
+    left: 57%;
+    top: 74%;
+}
+.summer-fish{
+    left: 55%;
+    top: 60%;
+    width: 34.7%;
+}
+.summer-winter-fish1{
+    left: 70%;
+    top: 67%;
+    width: 34.7%;
+}
+.summer-winter-fish2{
+    left: 62%;
+    top: 78%;
+    width: 34.7%;
+}
+.summer-fall-fish{
+    left: 45.5%;
+    top: 70%;
+    width: 34.7%;
+}
+.summer-fall-winter-fish{
+    left: 50.6%;
+    top: 80%;
+    width: 34.7%;
+}
+
+/* Fall */
+.fall-fish{  /* Fish */
+    left: 2%;
+    top: 45%;
+}
+.group.fall-fish{
+    width: 21.6%;
+}
+.fall-fish > .group-children > div{
+    flex-basis: 40%;
+}
+
+.fall-crops{  /* Crops */
+    left: 17%;
+    top: 60%
+}
+.group.fall-crops{
+    width: 21.6%;
+}
+.fall-crops > .group-children > div{
+    flex-basis: 40%;
+}
+
+.fall-fruits{  /* Fruits */
+    left: 50%;
+    top: 67%
+}
+.group.fall-fruits{
+    width: 21.6%;
+}
+.fall-fruits > .group-children > div{
+    flex-basis: 40%;
+    margin: 1px;
+}
+
+.fall-forage1{  /* Forage */
+    left: 31%;
+    top: 47.5%;
+}
+.group.fall-forage1{
+    width: 34.6%;
+}
+.fall-forage2{
+    left: 38%;
+    top: 52%;
+}
+.group.fall-forage2{
+    width: 34.6%;
+}
+.fall-forage3{
+    left: 47.5%;
+    top: 55%;
+}
+.group.fall-forage3{
+    width: 34.6%;
+}
+
+/* Winter */
+.winter-forage-header{  /* Forage */
+    left: 30%;
+    top: 58%;
+}
+
+.winter-forage1{
+    left: 5%;
+    top: 70%;
+    width: 65%;
+}
+.winter-forage2{
+    left: 26%;
+    top: 76%;
+    width: 65%;
+}
+.winter-forage3{
+    left: 45%;
+    top: 60%;
+    width: 65%;
+}
+.winter-forage4{
+    left: 42%;
+    top: 35%;
+    width: 65%;
+}
+
+/* AnySeason */
+.anyseason-forage{
+    top: 5%;
+    width: 30.5%;
+}
+.anyseason-farming{
+    top: 5%;
+    left: 35%;
+    width: 30.5%;
+}
+.anyseason-crabpot{
+    top: 5%;
+    right: 0%;
+    width: 30.5%;
+}
+.anyseason-mining{
+    top: 44%;
+    width: 30.5%;
+}
+.anyseason-artisan{
+    top: 44%;
+    left: 35%;
+    width: 30.5%;
+}
+.anyseason-fish{
+    top: 44%;
+    right: 0%;
+    width: 30.5%;
+}
+.anyseason-monster{
+    top: 77.5%;
+    width: 30.5%;
+}
+.anyseason-materials{
+    top: 77.5%;
+    left: 35%;
+    width: 30.5%;
+}
+.anyseason-cooking{
+    top: 77.5%;
+    right: 0%;
+    width: 30.5%;
+}
+
+.info{
+    opacity: 0;
+    visibility: hidden;
+    position:absolute;
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+    z-index: 2000;
+    font-size: 22;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    transition: border-color 0.15s;
+}
+
+.management-buttons{
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+.management-buttons > button{
+    margin: 2px;
+    padding: 0.5%;
+    border: none;
+    background-color: brown;
+    color: white;
+    box-shadow: 2px 2px black;
+    border-radius: 5%;
+    font-size: 130%;
+    cursor: pointer;
+}
+.management-buttons > .home{
+    border-radius: 5% 5% 20% 5%;
+}
