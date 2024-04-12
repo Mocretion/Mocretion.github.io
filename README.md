@@ -1,6 +1,7 @@
 # Links
 
-[Community Center Cheat Sheet](https://mocretion.github.io) <br />
+[Base Site](https://mocretion.github.io) <br />
+[Community Center Cheat Sheet](https://mocretion.github.io/community_center) <br />
 [Fishing Cheat Sheet](https://mocretion.github.io/fish)
 
 # Credits
