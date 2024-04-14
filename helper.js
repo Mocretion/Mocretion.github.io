@@ -1,4 +1,3 @@
-const mainElement = document.getElementById("main");
 let darkMode = false;
 
 function setCookie(cname, cvalue, exdays) {
@@ -26,10 +25,16 @@ function getCookie(cname) {
 
 function toggleDarkMode() {
     if(!darkMode)
-        mainElement.style.backgroundColor = 'rgba(100, 100, 100, 1)';
+        document.body.style.backgroundColor = 'rgba(100, 100, 100, 1)';
     else
-        mainElement.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+        document.body.style.backgroundColor = 'rgba(255, 255, 255, 1)';
 
     darkMode = !darkMode;
     setCookie("darkMode", darkMode, 60);
+}
+
+function stringToPercentage(str){
+    str = str.replace("%", "");
+    str = "0." + str;
+    return parseFloat(str);
 }

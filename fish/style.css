@@ -4,11 +4,15 @@
     font-family: sans-serif;
 }
 
+body{
+    background-color: white;
+    overflow: visible;
+}
+
 .main{
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: white;
+    overflow: visible;
     user-select: none;    
 }
 
@@ -62,7 +66,7 @@
     position: absolute;
     border: 2px solid black;
     border-radius: 10%;
-    font-size: 20;
+    font-size: 25;
     z-index: 90;
     padding-left: 5px;
     padding-right: 5px;
@@ -129,8 +133,6 @@
 
 .any-season-container{
     position: absolute;
-    top: -4%;
-    bottom: 0%;
     background-color: rgba(205, 189, 222, 0.5);
     border-radius: 5% 5% 2% 2%;
     left: 57.5%;
@@ -144,12 +146,11 @@
 
 .slider-container{
     position: absolute;
-    top: 33%;
-    bottom: 0%;
     background-color: rgba(205, 189, 222, 0.5);
     border-radius: 5% 5% 2% 2%;
     left: 57.5%;
     min-width: 500px;
+    min-height: 500px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -187,7 +188,6 @@
     flex-wrap: wrap;
 }
 .group-children > div{
-    width: 6%;
     margin: 1%;
 }
 .group-children img{
@@ -215,6 +215,7 @@
 .circle.winter2 > img{
     width: 9.7%
 }
+
 /* SPRING */
 .Sunfish{
     left: 82%;
@@ -403,14 +404,14 @@
 }
 .sliders-child{
     position: relative;
-    margin-top: 3%;
+    margin-top: 10;
     left: 10px;
 }
 
 .sliders-child:nth-child(3),
 .sliders-child:nth-child(8){
     position: relative;
-    margin-top: 8%;
+    margin-top: 40;
     left: 10px;
 }
 

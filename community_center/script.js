@@ -477,7 +477,6 @@ const observer = new ResizeObserver(entries => {
             case "spring":
                 entry.target.style.left = -entry.target.clientWidth + entry.target.clientWidth / cutQuantityProportion;
 
-                springCircleText.style.fontSize = width / 80;
                 border = getCircleBorder(center, center, 130);
 
                 springCircleText.style.left = border[0] - springCircleText.clientWidth / 2;
@@ -487,7 +486,6 @@ const observer = new ResizeObserver(entries => {
             case "summer":
                 entry.target.style.left = -entry.target.clientWidth / cutQuantityProportion;
 
-                summerCircleText.style.fontSize = width / 80;
                 border = getCircleBorder(center, center, 60);
 
                 summerCircleText.style.left = border[0] - summerCircleText.clientWidth / 2;
@@ -497,7 +495,6 @@ const observer = new ResizeObserver(entries => {
                 entry.target.style.left = -entry.target.clientWidth / 2.05;
                 entry.target.style.top = entry.target.clientHeight / 2.3;
 
-                fallCircleText.style.fontSize = width / 80;
                 border = getCircleBorder(center, center, 290);
 
                 fallCircleText.style.left = border[0] - fallCircleText.clientWidth / 2;
@@ -506,7 +503,6 @@ const observer = new ResizeObserver(entries => {
             case "winter":
                 entry.target.style.width = entry.target.clientHeight / 1.5;
                 entry.target.style.left = -entries[0].target.clientWidth / 1.55;
-                winterCircleText.style.fontSize = width / 80;
 
                 border = getCircleBorder(center, center, 230);
                 winterCircleText.style.left = border[0] - winterCircleText.clientWidth / 2;
@@ -515,7 +511,6 @@ const observer = new ResizeObserver(entries => {
             case "winter2":
                 entry.target.style.width = entry.target.clientHeight;
                 entry.target.style.left = entries[0].target.clientWidth / 2.15;
-                winterCircleText2.style.fontSize = width / 80;
 
                 border = getCircleBorder(center, center, 50);
                 winterCircleText2.style.left = border[0] - winterCircleText2.clientWidth / 2;
