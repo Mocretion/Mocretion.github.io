@@ -149,7 +149,7 @@ body{
     border-radius: 5% 5% 2% 2%;
     left: 57.5%;
     min-width: 500px;
-    min-height: 500px;
+    min-height: 540px;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -457,75 +457,187 @@ function getItemInfoBundleName(element){
     return element.onmousemove.toString().trim().split('\'')[3]
 }
 
-const observer = new ResizeObserver(entries => {
+/**
+ * Resizes the circles
+ */
+function resizeWindow(){
+    console.log("resize");
+
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    const anySeasonLeft = summerCircle.clientWidth * (1- 1 / cutQuantityProportion) + winterCircle2.clientWidth / 2;
-    anySeasonContainer.style.left = anySeasonLeft;
-    anySeasonContainer.style.width = width * 0.75 - anySeasonLeft;
-    anySeasonContainer.style.height = height * 0.98 - 10;
+    if(height > width){
+        container.style.height = "70%";
+        resizeCirclesVertically();
+        resizeAnySeasonVertically(width, height);
+    }
+    else{
+        container.style.height = "90%";
+        resizeCirclesHorizontally();
+        resizeAnySeasonHorizontally(width, height);
+    }
+}
+
+/**
+ * Apply portrait mode
+ */
+function resizeCirclesVertically(){
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    resizeSpring(width, height, "48.75%");
+    resizeSummer(width, height, "56.25%");
+    resizeFall(width, height, "56.25%");
+    resizeWinter(width, height, "10%");
+    resizeWinter2(width, height, "30%");
+
+    container.style.left = springCircle.clientHeight - springCircle.clientHeight / cutQuantityProportion + 30;
+}
+
+/**
+ * Apply landscape mode
+ */
+function resizeCirclesHorizontally(){
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    resizeSpring(width, height, "65%");
+    resizeSummer(width, height, "75%");
+    resizeFall(width, height, "75%");
+    resizeWinter(width, height, "20%");
+    resizeWinter2(width, height, "40%");
+
+    container.style.left = springCircle.clientHeight - springCircle.clientHeight / cutQuantityProportion + 30;
+}
+
+function resizeAnySeasonVertically(width, height){
+    anySeasonContainer.style.left = 10;
+    anySeasonContainer.style.right = 10;
+    anySeasonContainer.style.width = null;
+    anySeasonContainer.style.height = 1200;
+    anySeasonContainer.style.top = springCircle.clientHeight + fallCircle.clientHeight / 1.4;
     anySeasonText.style.left = anySeasonContainer.clientWidth / 2 - anySeasonText.clientWidth / 2;
+}
 
-    entries.forEach(entry => {
-        entry.target.style.width = entry.target.clientHeight;
+function resizeAnySeasonHorizontally(width, height){
+    const anySeasonLeft = summerCircle.clientWidth * (1- 1 / cutQuantityProportion) + winterCircle2.clientWidth / 2 + container.offsetLeft;
+    anySeasonContainer.style.left = anySeasonLeft;
+    anySeasonContainer.style.right = 10;
+    anySeasonContainer.style.top = 10;
+    anySeasonContainer.style.bottom = 10;
+    anySeasonContainer.style.width = null;
+    anySeasonContainer.style.height = null;
+    anySeasonText.style.left = anySeasonContainer.clientWidth / 2 - anySeasonText.clientWidth / 2;
+}
 
-        const center = entry.target.clientWidth / 2;
-        let border;
+function resizeSpring(width, height, radius){
+    // Make circle
+    if(height > width){
+        springCircle.style.width = stringToPercentage(radius) * window.innerWidth;
+        springCircle.style.height = springCircle.clientWidth;
+    }else{
+        springCircle.style.height = radius;
+        springCircle.style.width = springCircle.clientHeight;
+    }
 
-        switch(entry.target.id){
-            case "spring":
-                entry.target.style.left = -entry.target.clientWidth + entry.target.clientWidth / cutQuantityProportion;
+    const center = springCircle.clientWidth / 2;
 
-                border = getCircleBorder(center, center, 130);
+    springCircle.style.left = -springCircle.clientWidth + springCircle.clientWidth / cutQuantityProportion;  // Set position
 
-                springCircleText.style.left = border[0] - springCircleText.clientWidth / 2;
-                springCircleText.style.bottom = border[1] - springCircleText.clientHeight / 2;
+    // Set textbox position
+    const border = getCircleBorder(center, center, 130);
+    springCircleText.style.left = border[0] - springCircleText.clientWidth / 2;
+    springCircleText.style.bottom = border[1] - springCircleText.clientHeight / 2;
+}
 
-                break;
-            case "summer":
-                entry.target.style.left = -entry.target.clientWidth / cutQuantityProportion;
+function resizeSummer(width, height, radius){
+    // Make circle
+    if(height > width){
+        summerCircle.style.width = stringToPercentage(radius) * window.innerWidth;
+        summerCircle.style.height = summerCircle.clientWidth;
+    }
+    else{
+        summerCircle.style.height = radius;
+        summerCircle.style.width = summerCircle.clientHeight;
+    }
 
-                border = getCircleBorder(center, center, 60);
+    const center = summerCircle.clientWidth / 2;
 
-                summerCircleText.style.left = border[0] - summerCircleText.clientWidth / 2;
-                summerCircleText.style.bottom = border[1] - summerCircleText.clientHeight / 2;
-                break
-            case "fall":
-                entry.target.style.left = -entry.target.clientWidth / 2.05;
-                entry.target.style.top = entry.target.clientHeight / 2.3;
+    summerCircle.style.left = -summerCircle.clientWidth / cutQuantityProportion;  // Set position
 
-                border = getCircleBorder(center, center, 290);
+    // Set textbox position
+    const border = getCircleBorder(center, center, 50);
+    summerCircleText.style.left = border[0] - summerCircleText.clientWidth / 2;
+    summerCircleText.style.bottom = border[1] - summerCircleText.clientHeight / 2;
+}
 
-                fallCircleText.style.left = border[0] - fallCircleText.clientWidth / 2;
-                fallCircleText.style.bottom = border[1] - fallCircleText.clientHeight / 2;
-                break;
-            case "winter":
-                entry.target.style.width = entry.target.clientHeight / 1.5;
-                entry.target.style.left = -entries[0].target.clientWidth / 1.55;
+function resizeFall(width, height, radius){
+    // Make circle
+    if(height > width){
+        fallCircle.style.width = stringToPercentage(radius) * window.innerWidth;
+        fallCircle.style.height = fallCircle.clientWidth;
+    }
+    else{
+        fallCircle.style.height = radius;
+        fallCircle.style.width = fallCircle.clientHeight;
+    }
 
-                border = getCircleBorder(center, center, 230);
-                winterCircleText.style.left = border[0] - winterCircleText.clientWidth / 2;
-                winterCircleText.style.bottom = border[1] - winterCircleText.clientHeight / 1.2;
-                break;
-            case "winter2":
-                entry.target.style.width = entry.target.clientHeight;
-                entry.target.style.left = entries[0].target.clientWidth / 2.15;
+    const center = fallCircle.clientWidth / 2;
 
-                border = getCircleBorder(center, center, 50);
-                winterCircleText2.style.left = border[0] - winterCircleText2.clientWidth / 2;
-                winterCircleText2.style.bottom = border[1] - winterCircleText2.clientHeight / 1.2;
-                break;
-        }
-    });
+    // Set position
+    fallCircle.style.left = -fallCircle.clientWidth / 2.05;
+    fallCircle.style.top = fallCircle.clientHeight / 2.3;
 
-    container.style.left = entries[0].target.clientHeight - entries[0].target.clientHeight / cutQuantityProportion + 30;
-});
+    // Set texbox position
+    const border = getCircleBorder(center, center, 310);
+    fallCircleText.style.left = border[0] - fallCircleText.clientWidth / 2;
+    fallCircleText.style.bottom = border[1] - fallCircleText.clientHeight / 2;
+}
 
-observer.observe(springCircle);
-observer.observe(summerCircle);
-observer.observe(fallCircle);
-observer.observe(winterCircle);
-observer.observe(winterCircle2);
+function resizeWinter(width, height, radius){
+    // Make Oval
+    if(height > width){
+        winterCircle.style.width = stringToPercentage(radius) * window.innerWidth;
+        winterCircle.style.height = winterCircle.clientWidth * 1.5;  // Scale to oval
+    }else{
+        winterCircle.style.height = radius;
+        winterCircle.style.width = winterCircle.clientHeight / 1.5;  // Scale to oval
+    }
+
+    // Set Position
+    winterCircle.style.top = fallCircle.clientWidth / 1.5;
+    winterCircle.style.left = -springCircle.clientWidth / 1.55;
+
+    const center = fallCircle.clientWidth / 2;
+
+    // Set texbox position based on fall circle position
+    const border = getCircleBorder(center, center, 230);
+    winterCircleText.style.left = border[0] - winterCircleText.clientWidth * 1.5;
+    winterCircleText.style.bottom = border[1] - winterCircleText.clientHeight * 2;
+}
+
+function resizeWinter2(width, height, radius){
+    // Make circle
+    if(height > width){
+        winterCircle2.style.width = stringToPercentage(radius) * window.innerWidth;
+        winterCircle2.style.height = winterCircle2.clientWidth;
+    }
+    else{
+        winterCircle2.style.height = radius;
+        winterCircle2.style.width = winterCircle2.clientHeight;
+    }
+
+    const center = winterCircle2.clientWidth / 2;
+
+    winterCircle2.style.top = summerCircle.clientWidth / 1.5;  // Set position
+    winterCircle2.style.left = springCircle.clientWidth / 2.15;  // Set position
+
+    // Set texbox position
+    const border = getCircleBorder(center, center, 300);
+    winterCircleText2.style.left = border[0] - winterCircleText2.clientWidth / 2;
+    winterCircleText2.style.bottom = border[1] - winterCircleText2.clientHeight / 1.2;
+}
 
 window.onload = initBundles();
+resizeWindow();
+window.addEventListener("resize", resizeWindow);

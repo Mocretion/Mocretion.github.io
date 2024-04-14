@@ -462,6 +462,9 @@ function getItemByInfoName(name){
     return element;
 }
 
+/**
+ * Resizes the circles
+ */
 function resizeWindow(){
     console.log("resize");
 
@@ -480,31 +483,37 @@ function resizeWindow(){
     }
 }
 
+/**
+ * Apply portrait mode
+ */
 function resizeCirclesVertically(){
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    resizeSpringVertically(width, height, "45%");
-    resizeSummerVertically(width, height, "56.25%");
-    resizeFallVertically(width, height, "52.5%");
-    resizeWinterVertically(width, height, "13.75%");
-    resizeWinter2Vertically(width, height, "45%");
-    resizeWinter3Vertically(width, height, "20.25%");
+    resizeSpring(width, height, "45%");
+    resizeSummer(width, height, "56.25%");
+    resizeFall(width, height, "52.5%");
+    resizeWinter(width, height, "13.75%");
+    resizeWinter2(width, height, "45%");
+    resizeWinter3(width, height, "20.25%");
 
     container.style.left = springCircle.clientHeight - springCircle.clientHeight / cutQuantityProportion + 30;
     container.style.top = summerCircle.clientHeight / 15;
 }
 
+/**
+ * Apply landscape mode
+ */
 function resizeCirclesHorizontally(){
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    resizeSpringVertically(width, height, "60%");
-    resizeSummerVertically(width, height, "75%");
-    resizeFallVertically(width, height, "70%");
-    resizeWinterVertically(width, height, "55%");
-    resizeWinter2Vertically(width, height, "60%");
-    resizeWinter3Vertically(width, height, "13.5%");
+    resizeSpring(width, height, "60%");
+    resizeSummer(width, height, "75%");
+    resizeFall(width, height, "70%");
+    resizeWinter(width, height, "55%");
+    resizeWinter2(width, height, "60%");
+    resizeWinter3(width, height, "13.5%");
 
     container.style.left = springCircle.clientHeight - springCircle.clientHeight / cutQuantityProportion + 30;
     container.style.top = summerCircle.clientHeight / 15;
@@ -521,8 +530,9 @@ function resizeAnySeasonVertically(width, height){
     sliderContainer.style.left = 10;
     sliderContainer.style.right = 10;
     sliderContainer.style.width = null;
-    sliderContainer.style.height = height * 0.3;
+    sliderContainer.style.height = null;
     sliderContainer.style.top = anySeasonContainer.offsetTop + anySeasonContainer.clientHeight + 10;
+    sliderContainer.style.bottom = 10;
 }
 
 function resizeAnySeasonHorizontally(width, height){
@@ -539,9 +549,10 @@ function resizeAnySeasonHorizontally(width, height){
     sliderContainer.style.width = width * 0.7685 - anySeasonLeft + container.offsetLeft;
     sliderContainer.style.height = height * 0.638;
     sliderContainer.style.top = "34%";
+    sliderContainer.style.bottom = null;
 }
 
-function resizeSpringVertically(width, height, radius){
+function resizeSpring(width, height, radius){
     // Make circle
     if(height > width){
         springCircle.style.width = stringToPercentage(radius) * window.innerWidth;
@@ -561,7 +572,7 @@ function resizeSpringVertically(width, height, radius){
     springCircleText.style.bottom = border[1] - springCircleText.clientHeight / 2;
 }
 
-function resizeSummerVertically(width, height, radius){
+function resizeSummer(width, height, radius){
     // Make circle
     if(height > width){
         summerCircle.style.width = stringToPercentage(radius) * window.innerWidth;
@@ -582,7 +593,7 @@ function resizeSummerVertically(width, height, radius){
     summerCircleText.style.bottom = border[1] - summerCircleText.clientHeight / 2;
 }
 
-function resizeFallVertically(width, height, radius){
+function resizeFall(width, height, radius){
     // Make circle
     if(height > width){
         fallCircle.style.width = stringToPercentage(radius) * window.innerWidth;
@@ -605,7 +616,7 @@ function resizeFallVertically(width, height, radius){
     fallCircleText.style.bottom = border[1] - fallCircleText.clientHeight / 2;
 }
 
-function resizeWinterVertically(width, height, radius){
+function resizeWinter(width, height, radius){
     // Make Oval
     if(height > width){
         winterCircle.style.width = stringToPercentage(radius) * window.innerWidth;
@@ -627,7 +638,7 @@ function resizeWinterVertically(width, height, radius){
     winterCircleText.style.bottom = border[1] - winterCircleText.clientHeight / 2;
 }
 
-function resizeWinter2Vertically(width, height, radius){
+function resizeWinter2(width, height, radius){
     // Make circle
     if(height > width){
         winterCircle2.style.width = stringToPercentage(radius) * window.innerWidth;
@@ -649,7 +660,7 @@ function resizeWinter2Vertically(width, height, radius){
     winterCircleText2.style.bottom = border[1] - winterCircleText2.clientHeight / 1.2;
 }
 
-function resizeWinter3Vertically(width, height, radius){
+function resizeWinter3(width, height, radius){
     // Make Oval
     if(height > width){
         winterCircle3.style.width = stringToPercentage(radius) * window.innerWidth;
