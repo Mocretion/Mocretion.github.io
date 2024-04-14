@@ -6,13 +6,12 @@
 
 body{
     background-color: white;
-    overflow: visible;
 }
 
 .main{
     width: 100%;
     height: 100%;
-    overflow: visible;
+    overflow: auto;
     user-select: none;    
 }
 
