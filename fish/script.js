@@ -547,9 +547,9 @@ function resizeAnySeasonHorizontally(width, height){
     sliderContainer.style.left = anySeasonLeft;
     sliderContainer.style.right = null;
     sliderContainer.style.width = width * 0.7685 - anySeasonLeft + container.offsetLeft;
-    sliderContainer.style.height = height * 0.638;
+    sliderContainer.style.height = null;
     sliderContainer.style.top = "34%";
-    sliderContainer.style.bottom = null;
+    sliderContainer.style.bottom = 10;
 }
 
 function resizeSpring(width, height, radius){
