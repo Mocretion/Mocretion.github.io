@@ -61,5 +61,52 @@ function replaceCodeWords(string){
     string = string.replace('#RED#', "</span>");
     string = string.replace("#GOLD#", "<span style=\'color: orange\'>");
     string = string.replace('#GOLD#', "</span>");
+
+    // Farming
+    string = string.replace("#BLACKBERRY#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Blackberry.png>");
+    string = string.replace("#SUGAR#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Sugar.png>");
+    string = string.replace("#WHEAT_FLOUR#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Wheat_Flour.png>");
+    string = string.replace("#EGG#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Large_Egg.png>");
+    string = string.replace("#EGG_BROWN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Large_Brown_Egg.png>");
+    string = string.replace("#DINOSAUR_EGG#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Dinosaur_Egg.png>");
+    string = string.replace("#OSTRICH_EGG#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Ostrich_Egg.png>");
+    string = string.replace("#MILK#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Large_Milk.png>");
+    string = string.replace("#KALE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/KALE.png>");
+    string = string.replace("#AMARANTH#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Amaranth.png>");
+    string = string.replace("#HOPS#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Hops.png>");
+    string = string.replace("#TEA_LEAVES#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Tea_Leaves.png>");
+    string = string.replace("#WHEAT#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Wheat.png>");
+    string = string.replace("#UNMILLED_RICE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Unmilled_Rice.png>");
+
+    // Minging
+    string = string.replace("#DIAMOND#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Diamond.png>");
+    string = string.replace("#EMERALD#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Emerald.png>");
+    string = string.replace("#AQUAMARINE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Aquamarine.png>");
+    string = string.replace("#RUBY#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Ruby.png>");
+    string = string.replace("#AMETHYST#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Amethyst.png>");
+    string = string.replace("#TOPAZ#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Topaz.png>");
+    string = string.replace("#JADE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Jade.png>");
+    string = string.replace("#EARTH_CRYSTAL#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Earth_Crystal.png>");
+    string = string.replace("#FROZEN_TEAR#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Frozen_Tear.png>");
+    string = string.replace("#FIRE_QUARTZ#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Fire_Quartz.png>");
+
+    // Foraging
+    string = string.replace("#SWEET_PEA#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Sweet_Pea.png>");
+    string = string.replace("#CROCUS#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Crocus.png>");
+    string = string.replace("#SUNFLOWER#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Sunflower.png>");
+    string = string.replace("#TULIP#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Tulip.png>");
+    string = string.replace("#SUMMER_SPANGLE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Summer_Spangle.png>");
+    string = string.replace("#FAIRY_ROSE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Fairy_Rose.png>");
+    string = string.replace("#BLUE_JAZZ#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Blue_Jazz.png>");
+
+    // Food
+    string = string.replace("#FRIED_EGG#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Fried_Egg.png>");
+    string = string.replace("#HASHBROWNS#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Hashbrowns.png>");
+    string = string.replace("#PANCAKES#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Pancakes.png>");
+
+    // Fish
+    string = string.replace("#SALMON#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Salmon.png>");
+
+
     return string;
 }

@@ -1,0 +1,202 @@
+<html>
+    <head>
+        <title>SV Friendship</title>
+        <link rel="icon" href="/images/Junimo.png">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="main" id="main">
+
+            <div class="info" id="info">
+                <div class="left" id="infoLeft">
+                </div>
+                <div class="right" id="infoRight">
+                </div>
+            </div>
+
+            <img class="darkMode" src="/images/DarkModeMoon.png" title="Toggle Darkmode" onclick="toggleDarkMode()"/>
+
+            <div class="container">
+                <div class="npc">
+                    <div class="portrait">
+                        <img src="/images/NPC/Portrait.png" title="Open Wiki in new tab" onclick="window.open('https://stardewvalleywiki.com/Abigail')">
+                        <img class="foreground" src="/images/NPC/Abigail.png" title="Open Wiki in new tab" onclick="window.open('https://stardewvalleywiki.com/Abigail')">
+                    </div>
+
+                    <div>
+                        <p>Loved Gifts</p>
+                        <div class="items">
+                            <div>
+                                <img src="/images/Amethyst.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Amethyst', 'Mining'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Blackberry_Cobbler.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Blackberry Cobbler', 'Cooking'], ['Ingredients', '#BLACKBERRY# Blackberry x2', '#SUGAR# Sugar', '#WHEAT_FLOUR# Wheat Flour'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Chocolate_Cake.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Chocolate Cake', 'Cooking'], ['Ingredients', '#WHEAT_FLOUR# Wheat Flour', '#SUGAR# Sugar', '#EGG# Egg'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Pufferfish.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Pufferfish', 'Fishing'], ['Location:', 'Ocean'], ['Time:', '12pm - 4pm'], ['Weather:', '#SUN# Sun'], ['Difficulty:', '80'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Pumpkin.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Pumpkin', 'Farming'], ['Plant before:', '16th'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Rabbit's_Foot.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Rabbit\'s Foot', 'Farming'])"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Liked Gifts</p>
+                        <div class="items">
+                            <div>
+                                <img src="/images/Quartz.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Quartz', 'Mining'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Diamond.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Gems', 'Mining', '#EMERALD# Emerald', '#AQUAMARINE# Aquamarine', '#RUBY# Ruby', '#TOPAZ# Topaz', '#JADE# Jade', '#DIAMOND# Diamond'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Earth_Crystal.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Foraged Minerals', 'Mining', '#EARTH_CRYSTAL# Earth Crystal', '#FROZEN_TEAR# Frozen Tear', '#FIRE_QUARTZ# Fire Quartz'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Fairy_Rose.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Most Flowers', 'Farming', '#SWEET_PEA# Sweet Pea', '#CROCUS# Crocus', '#SUNFLOWER# Sunflower', '#TULIP# Tulip', '#SUMMER_SPANGLE# Summer Spangle', '#FAIRY_ROSE# Fairy Rose', '#BLUE_JAZZ# Blue Jazz'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Maple_Syrup.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Maple Syrup'], ['Source:', '#TAPPER# Tapper on Maple Tree'], ['Time:', '9 Days'])"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Mailed Items</p>
+                    </div>
+                    <div>
+                        <p>Heart Rewards</p>        
+                    </div>
+                </div>
+
+                <div class="npc">
+                    <div class="portrait">
+                        <img src="/images/NPC/Portrait.png" title="Open Wiki in new tab" onclick="window.open('https://stardewvalleywiki.com/Alex')">
+                        <img class="foreground" src="/images/NPC/Alex.png" title="Open Wiki in new tab" onclick="window.open('https://stardewvalleywiki.com/Alex')">
+                    </div>
+
+                    <div>
+                        <p>Loved Gifts</p>
+                        <div class="items">
+                            <div>
+                                <img src="/images/Complete_Breakfast.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Complete Breakfast', 'Cooking'], ['Ingredients', '#FRIED_EGG# Fried Egg', '#MILK# Milk', '#HASHBROWNS# Hashbrowns', '#PANCAKES# Pancakes'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Salmon_Dinner.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Salmon Dinner', 'Cooking'], ['Ingredients', '#SALMON# Salmon', '#AMARANTH# Amaranth', '#KALE# Kale'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Golden_Pumpkin.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Golden Pumpkin', 'Event'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Rabbit's_Foot.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Rabbit\'s Foot', 'Farming'])"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Liked Gifts</p>
+                        <div class="items">
+                            <div>
+                                <img src="/images/Field_Snack.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Field Snack', 'Crafting'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Large_Egg.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Eggs', 'Farming', '#EGG# (Large) Egg', '#EGG_BROWN# (Large) Brown Egg', '#DINOSAUR_EGG# Dinosaur Egg', '#OSTRICH_EGG# Ostrich Egg'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Diamond.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Gems', 'Mining', '#EMERALD# Emerald', '#AQUAMARINE# Aquamarine', '#RUBY# Ruby', '#AMETHYST# Amethyst', '#TOPAZ# Topaz', '#JADE# Jade', '#DIAMOND# Diamond'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Earth_Crystal.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Foraged Minerals', 'Mining', '#EARTH_CRYSTAL# Earth Crystal', '#FROZEN_TEAR# Frozen Tear', '#FIRE_QUARTZ# Fire Quartz'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Fairy_Rose.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Most Flowers', 'Farming', '#SWEET_PEA# Sweet Pea', '#CROCUS# Crocus', '#SUNFLOWER# Sunflower', '#TULIP# Tulip', '#SUMMER_SPANGLE# Summer Spangle', '#FAIRY_ROSE# Fairy Rose', '#BLUE_JAZZ# Blue Jazz'])"/>
+                            </div>
+                            <div>
+                                <img src="/images/Cauliflower.png"
+                                draggable="false"
+                                onmouseleave="hideInfo()"
+                                onmousemove="showInfo(event, this, ['Most Vegetables', 'Farming'], ['#RED# Excludes:', '#HOPS# #RED#Hops', '#TEA_LEAVES# #RED#Tea Leaves', '#WHEAT# #RED#Wheat', '#UNMILLED_RICE# #RED#Unmilled Rice'])"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Mailed Items</p>
+                    </div>
+                    <div>
+                        <p>Heart Rewards</p>        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <script src="/codewords.js"></script>
+    <script src="/helper.js"></script>
+    <script src="script.js"></script>
+</html>

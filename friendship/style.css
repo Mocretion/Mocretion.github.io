@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body{
+    background-color: white;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    user-select: text;
+}
+
+.darkMode{
+    position: absolute;
+    width: 50px;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.container{
+    position: absolute;
+    top: 70px;
+    left: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.npc{
+    height: 148px;
+    width: 910px;
+    border: 4px solid black;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: start;
+}
+
+.npc > *{
+    border: 1px solid black;
+}
+
+.npc p{
+    padding: 5px 10px 0px 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.npc > div{
+    height: 100%;
+}
+
+.npc > div:not(:first-child){
+    width: 100%;
+}
+
+.portrait{
+    height: 148px;
+    width: 149px;
+}
+
+.portrait > img{
+    position: relative;
+    height: 100%;
+    cursor: pointer;
+}
+
+.foreground{
+    position: absolute;
+    bottom: 136px;
+    left: 10px;
+    max-height: 128;
+}
+
+.items{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.items > div{
+    flex-basis: 33.3%;
+    margin: 6px;
+    max-width: 48px;
+}
+
+.info{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background-color: white;
+    border: 2px solid black;
+    padding: 10px;
+    z-index: 2000;
+    font-size: 22;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    transition: border-color 0.15s;
+}
