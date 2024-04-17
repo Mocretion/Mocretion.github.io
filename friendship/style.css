@@ -107,3 +107,21 @@ body{
 
     transition: border-color 0.15s;
 }
+
+.management-buttons > button{
+    margin: 2px;
+    padding: 0.5%;
+    border: none;
+    background-color: brown;
+    color: white;
+    box-shadow: 2px 2px black;
+    border-radius: 5%;
+    font-size: 130%;
+    cursor: pointer;
+}
+.management-buttons > .home{
+    border-radius: 5% 5% 20% 5%;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
