@@ -50,10 +50,12 @@ function replaceCodeWords(string){
             var words = result.split("_");
             var potentialName = "";
             words.forEach(word => {
+                word = word.toLowerCase();
+
                 if(potentialName != "")
                     potentialName += "_";
 
-                potentialName += word[0].toLocaleUpperCase() + word.substring(1);
+                potentialName += word[0].toUpperCase() + word.substring(1);
             });
             string = string.replace("#" + result + "#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/" + potentialName + ".png>");
         });
