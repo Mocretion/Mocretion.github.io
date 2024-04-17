@@ -324,9 +324,9 @@ function showInfo(e, element, ...lines){
     calculateLines(element, lines);
 
     if(e.clientX / window.innerWidth < 0.7)  // Show info text on left of mouse
-        infoElement.style.left = e.clientX + 30;
+        infoElement.style.left = e.clientX + window.scrollX + 30;
     else
-        infoElement.style.left = e.clientX - 30 - infoElement.clientWidth;
+        infoElement.style.left = e.clientX + window.scrollX - 30 - infoElement.clientWidth;
 
     if(e.clientY / window.innerHeight > 0.8)  // Show info text on left of mouse
         infoElement.style.top = e.clientY + window.scrollY -infoElement.clientHeight;
