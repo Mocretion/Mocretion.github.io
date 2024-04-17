@@ -136,6 +136,7 @@ body{
     border-radius: 5% 5% 2% 2%;
     left: 57.5%;
     min-width: 500px;
+    min-height: 250px;
 }
 .seasonText.anySeason{
     background-color: rgba(205, 189, 222, 1);
