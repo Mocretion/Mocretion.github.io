@@ -23,6 +23,9 @@ function replaceCodeWords(string){
     string = string.replace("#GUS#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Gus_Icon.png>");
     string = string.replace("#MARNIE#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Marnie_Icon.png>");
     string = string.replace("#MERCHANT#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Traveling_Cart_Icon.png>");
+    string = string.replace("#CLINT#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Clint_Icon.png>");
+    string = string.replace("#JODI#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Jodi_Icon.png>");
+    string = string.replace("#EVELYN#", "<img style=\'display:inline-block; height:1em; width:auto; transform:translate(0, 0.1em)\' src=/images/Evelyn_Icon.png>");
 
     // Colors
     string = string.replace("#RED#", "<span style=\'color: red\'>");

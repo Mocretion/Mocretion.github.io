@@ -2,6 +2,8 @@ const infoElement = document.getElementById("info");
 const infoLeft = document.getElementById("infoLeft");
 const infoRight = document.getElementById("infoRight");
 
+const homeButton = document.getElementById("home");
+
 function initCookies(){
     if(getCookie("darkMode") == "true"){
         toggleDarkMode();
@@ -15,14 +17,14 @@ function showInfo(e, element, ...lines){
     calculateLines(element, lines);
 
     if(e.clientX / window.innerWidth < 0.7)  // Show info text on left of mouse
-        infoElement.style.left = e.clientX + 30;
+        infoElement.style.left = e.clientX + window.scrollX + 30;
     else
-        infoElement.style.left = e.clientX - 30 - infoElement.clientWidth;
+        infoElement.style.left = e.clientX + window.scrollX - 30 - infoElement.clientWidth;
 
     if(e.clientY / window.innerHeight > 0.66)  // Show info text on left of mouse
-        infoElement.style.top = e.clientY -infoElement.clientHeight;
+        infoElement.style.top = e.clientY + window.scrollY -infoElement.clientHeight;
     else
-        infoElement.style.top = e.clientY;
+        infoElement.style.top = e.clientY + window.scrollY;
 
     infoElement.style.opacity = 1;
     infoElement.style.visibility = 'visible';
@@ -78,3 +80,4 @@ function calculateLines(element, lines){
 }
 
 window.onload = initCookies();
+window.onscroll = function(){homeButton.style.bottom = 5 - window.scrollY}
